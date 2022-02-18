@@ -34,16 +34,32 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="5" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="3Ep-WM-JWq">
-                                <rect key="frame" x="71" y="74" width="265" height="31"/>
+                                <rect key="frame" x="71" y="59" width="265" height="31"/>
                                 <connections>
                                     <action selector="rateEffectChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="99o-jr-t52"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yym-Ne-bgz">
-                                <rect key="frame" x="344" y="74" width="50" height="30"/>
+                                <rect key="frame" x="344" y="63.5" width="50" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="TRO-Z1-QdT"/>
-                                    <constraint firstAttribute="height" constant="30" id="izg-E1-cYr"/>
+                                    <constraint firstAttribute="height" constant="21" id="izg-E1-cYr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="5" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="lGH-Bb-ZFR">
+                                <rect key="frame" x="73" y="89" width="263" height="31"/>
+                                <connections>
+                                    <action selector="pitchEffectChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="K9i-yq-BRf"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0C-wj-iuN">
+                                <rect key="frame" x="344" y="93.5" width="50" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YHF-sp-9Bo"/>
+                                    <constraint firstAttribute="width" constant="50" id="mC8-LB-XwL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -53,16 +69,24 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="W0C-wj-iuN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="2BU-mH-7gK"/>
                             <constraint firstItem="jAL-Py-dZe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="BMt-hz-1kg"/>
+                            <constraint firstItem="lGH-Bb-ZFR" firstAttribute="centerY" secondItem="jAL-Py-dZe" secondAttribute="centerY" constant="15" id="CDv-jA-6yZ"/>
+                            <constraint firstItem="Yym-Ne-bgz" firstAttribute="leading" secondItem="lGH-Bb-ZFR" secondAttribute="trailing" constant="10" id="FfC-Pd-oZn"/>
                             <constraint firstItem="Yym-Ne-bgz" firstAttribute="leading" secondItem="3Ep-WM-JWq" secondAttribute="trailing" constant="10" id="Kj4-sj-yPl"/>
-                            <constraint firstItem="Yym-Ne-bgz" firstAttribute="centerY" secondItem="jAL-Py-dZe" secondAttribute="centerY" id="LWA-Jg-dbU"/>
+                            <constraint firstItem="Yym-Ne-bgz" firstAttribute="centerY" secondItem="jAL-Py-dZe" secondAttribute="centerY" constant="-15" id="LWA-Jg-dbU"/>
+                            <constraint firstItem="lGH-Bb-ZFR" firstAttribute="leading" secondItem="jAL-Py-dZe" secondAttribute="trailing" constant="10" id="UX4-In-uBD"/>
                             <constraint firstItem="3Ep-WM-JWq" firstAttribute="leading" secondItem="jAL-Py-dZe" secondAttribute="trailing" constant="8" symbolic="YES" id="XS1-AC-jQT"/>
                             <constraint firstItem="Yym-Ne-bgz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="btb-Bi-gR0"/>
                             <constraint firstItem="jAL-Py-dZe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="dYF-Ka-d94"/>
-                            <constraint firstItem="3Ep-WM-JWq" firstAttribute="centerY" secondItem="jAL-Py-dZe" secondAttribute="centerY" id="hUk-v5-DsL"/>
+                            <constraint firstItem="3Ep-WM-JWq" firstAttribute="centerY" secondItem="jAL-Py-dZe" secondAttribute="centerY" constant="-15" id="hUk-v5-DsL"/>
+                            <constraint firstItem="W0C-wj-iuN" firstAttribute="centerY" secondItem="jAL-Py-dZe" secondAttribute="centerY" constant="15" id="mBD-T9-QtU"/>
+                            <constraint firstItem="W0C-wj-iuN" firstAttribute="leading" secondItem="lGH-Bb-ZFR" secondAttribute="trailing" constant="10" id="pcI-ub-c5U"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pitchEffectLab" destination="W0C-wj-iuN" id="Xq3-ik-84V"/>
+                        <outlet property="pitchEffectSlider" destination="lGH-Bb-ZFR" id="u9u-EF-tAh"/>
                         <outlet property="playBtn" destination="jAL-Py-dZe" id="cMh-LA-G4Y"/>
                         <outlet property="rateEffectSlider" destination="3Ep-WM-JWq" id="c0r-WF-gz3"/>
                         <outlet property="rateEffectValueLab" destination="Yym-Ne-bgz" id="vjs-3g-bO5"/>

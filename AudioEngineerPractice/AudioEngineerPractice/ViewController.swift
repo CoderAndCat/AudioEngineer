@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var rateEffectValueLab: UILabel!
     
+    @IBOutlet weak var pitchEffectSlider: UISlider!
+    
+    @IBOutlet weak var pitchEffectLab: UILabel!
+    
     let pauseImageName = "pause.circle"
     let playImageName = "play.circle"
     
@@ -32,6 +36,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rateEffectSlider.setValue(10, animated: false)
+        self.pitchEffectSlider.setValue(10, animated: false)
+        
         self.rateEffectValueLab.text = "1.0"
         self.playBtn.setTitle(nil, for: .normal)
         self.playBtn.setTitle(nil, for: .highlighted)
@@ -52,6 +58,7 @@ class ViewController: UIViewController {
                 audioEngineer.connect(rateEffect, to: audioEngineer.mainMixerNode, format: audioFormat)
                 
                 rateEffect.rate = 1.0
+                rateEffect.pitch = 1.0
                 prepareAudioFile()
                 try audioEngineer.start()
                 
@@ -82,7 +89,15 @@ class ViewController: UIViewController {
                     sself.playBtn.setImage(UIImage.init(systemName: sself.playImageName), for: .highlighted)
                 }
             }
+            
+            sself.prepareAudioFile()
         }
+    }
+    
+    @IBAction func pitchEffectChanged(_ sender: UISlider) {
+        let ve = String(format: "%.1f", sender.value / Float(10.0))
+        self.pitchEffectLab.text = ve
+        self.rateEffect.pitch = sender.value / Float(10)
     }
     @IBAction func rateEffectChanged(_ sender: UISlider) {
         let ve = String(format: "%.1f", sender.value / Float(10.0))
