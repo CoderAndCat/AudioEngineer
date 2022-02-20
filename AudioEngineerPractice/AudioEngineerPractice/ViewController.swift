@@ -254,5 +254,10 @@ class ViewController: UIViewController {
         self.wetDryMixLab.text = "\(sender.value)"
     }
     
+    @IBAction func enterNextPage(_ sender: UIButton) {
+        let aunvc = AudioUnitParcViewController(nibName: "AudioUnitParcViewController", bundle: nil)
+        self.present(aunvc, animated: true, completion: nil)
+        
+    }
 }
 

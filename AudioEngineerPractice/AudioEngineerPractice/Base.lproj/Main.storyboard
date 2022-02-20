@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad11_0rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -148,14 +148,27 @@
                                     <action selector="reverbTypeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Chg-qd-qDf"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-6w-BhV">
+                                <rect key="frame" x="1074" y="763" width="100" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="HJh-zE-1EB"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="next page"/>
+                                <connections>
+                                    <action selector="enterNextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xzD-Uy-MV9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6hB-Qx-WtP" secondAttribute="trailing" constant="20" id="5hZ-dO-p2w"/>
                             <constraint firstItem="6hB-Qx-WtP" firstAttribute="width" secondItem="Yym-Ne-bgz" secondAttribute="width" id="9ff-A8-5dh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l0m-6w-BhV" secondAttribute="trailing" constant="20" id="A0D-lY-mMm"/>
                             <constraint firstItem="2cN-L0-WeG" firstAttribute="centerY" secondItem="1Uz-Lq-7ou" secondAttribute="centerY" id="F52-kP-2dj"/>
                             <constraint firstItem="b0z-wQ-RzP" firstAttribute="centerY" secondItem="kXO-9n-Rc9" secondAttribute="centerY" id="FTy-0m-ubh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="l0m-6w-BhV" secondAttribute="bottom" constant="20" id="HCB-aZ-Smg"/>
                             <constraint firstItem="e5b-kw-oZg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="HOI-IA-aCJ"/>
                             <constraint firstItem="2cN-L0-WeG" firstAttribute="width" secondItem="Yym-Ne-bgz" secondAttribute="width" id="HxX-jL-6yT"/>
                             <constraint firstItem="b0z-wQ-RzP" firstAttribute="width" secondItem="3Ep-WM-JWq" secondAttribute="width" id="IUS-FR-3PQ"/>
