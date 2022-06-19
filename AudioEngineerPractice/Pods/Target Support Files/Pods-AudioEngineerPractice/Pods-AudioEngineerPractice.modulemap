@@ -1,0 +1,6 @@
+module Pods_AudioEngineerPractice {
+  umbrella header "Pods-AudioEngineerPractice-umbrella.h"
+
+  export *
+  module * { export * }
+}

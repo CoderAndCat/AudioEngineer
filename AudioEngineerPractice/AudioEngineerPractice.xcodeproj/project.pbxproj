@@ -26,7 +26,6 @@
 		80BBBF862844680C004521CF /* HuaLangCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF842844680C004521CF /* HuaLangCollectionViewController.swift */; };
 		80BBBF872844680C004521CF /* HuaLangCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF852844680C004521CF /* HuaLangCollectionViewController.xib */; };
 		80BBBF8A28446CF7004521CF /* GalleryFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF8928446CF7004521CF /* GalleryFlowLayout.swift */; };
-		80BBBF8D284477B4004521CF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80BBBF8C284477B4004521CF /* SnapKit */; };
 		80BBBF9F284640CA004521CF /* GradienetTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF9E284640CA004521CF /* GradienetTestViewController.swift */; };
 		80BBBFA828470C21004521CF /* MultipleAudioTrackMixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBFA628470C21004521CF /* MultipleAudioTrackMixViewController.swift */; };
 		80BBBFA928470C21004521CF /* MultipleAudioTrackMixViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */; };
@@ -34,9 +33,12 @@
 		80C54415283B3440001FEB00 /* AppleSamplerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */; };
 		80C5441A283B5C4C001FEB00 /* Library2.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 80C54419283B5C4C001FEB00 /* Library2.sf2 */; };
 		80C5441C283B5CAD001FEB00 /* QuDiMK6.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */; };
+		C97BCD7AB5C6AC37079357A0 /* libPods-AudioEngineerPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B5521249B196215791D82 /* libPods-AudioEngineerPractice.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2031AF7602E6417CFFAF253F /* Pods-AudioEngineerPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioEngineerPractice.release.xcconfig"; path = "Target Support Files/Pods-AudioEngineerPractice/Pods-AudioEngineerPractice.release.xcconfig"; sourceTree = "<group>"; };
+		3006FE1A294DA061069057E8 /* Pods-AudioEngineerPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioEngineerPractice.debug.xcconfig"; path = "Target Support Files/Pods-AudioEngineerPractice/Pods-AudioEngineerPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		8019C69F27BE237A006B02B3 /* AudioEngineerPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioEngineerPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8019C6A227BE237A006B02B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8019C6A627BE237A006B02B3 /* AudioEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleSamplerTestViewController.xib; sourceTree = "<group>"; };
 		80C54419283B5C4C001FEB00 /* Library2.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Library2.sf2; sourceTree = "<group>"; };
 		80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuDiMK6.sf2; sourceTree = "<group>"; };
+		AE8B5521249B196215791D82 /* libPods-AudioEngineerPractice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AudioEngineerPractice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,18 +75,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80BBBF8D284477B4004521CF /* SnapKit in Frameworks */,
+				C97BCD7AB5C6AC37079357A0 /* libPods-AudioEngineerPractice.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72DCE0500439E1AD821D7B43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3006FE1A294DA061069057E8 /* Pods-AudioEngineerPractice.debug.xcconfig */,
+				2031AF7602E6417CFFAF253F /* Pods-AudioEngineerPractice.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8019C69627BE237A006B02B3 = {
 			isa = PBXGroup;
 			children = (
 				8019C6A127BE237A006B02B3 /* AudioEngineerPractice */,
 				8019C6A027BE237A006B02B3 /* Products */,
+				72DCE0500439E1AD821D7B43 /* Pods */,
+				F9E2612F70D0386835320C2B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +176,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F9E2612F70D0386835320C2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE8B5521249B196215791D82 /* libPods-AudioEngineerPractice.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8019C6B327BE237C006B02B3 /* Build configuration list for PBXNativeTarget "AudioEngineerPractice" */;
 			buildPhases = (
+				CDDD35438EE5D2E217F3B5D0 /* [CP] Check Pods Manifest.lock */,
 				8019C69B27BE237A006B02B3 /* Sources */,
 				8019C69C27BE237A006B02B3 /* Frameworks */,
 				8019C69D27BE237A006B02B3 /* Resources */,
@@ -177,9 +201,6 @@
 			dependencies = (
 			);
 			name = AudioEngineerPractice;
-			packageProductDependencies = (
-				80BBBF8C284477B4004521CF /* SnapKit */,
-			);
 			productName = AudioEngineerPractice;
 			productReference = 8019C69F27BE237A006B02B3 /* AudioEngineerPractice.app */;
 			productType = "com.apple.product-type.application";
@@ -208,9 +229,6 @@
 				Base,
 			);
 			mainGroup = 8019C69627BE237A006B02B3;
-			packageReferences = (
-				80BBBF8B284477B4004521CF /* XCRemoteSwiftPackageReference "SnapKit" */,
-			);
 			productRefGroup = 8019C6A027BE237A006B02B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -244,6 +262,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CDDD35438EE5D2E217F3B5D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AudioEngineerPractice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8019C69B27BE237A006B02B3 /* Sources */ = {
@@ -404,6 +447,7 @@
 		};
 		8019C6B427BE237C006B02B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3006FE1A294DA061069057E8 /* Pods-AudioEngineerPractice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -435,6 +479,7 @@
 		};
 		8019C6B527BE237C006B02B3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2031AF7602E6417CFFAF253F /* Pods-AudioEngineerPractice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -486,25 +531,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		80BBBF8B284477B4004521CF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		80BBBF8C284477B4004521CF /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 80BBBF8B284477B4004521CF /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8019C69727BE237A006B02B3 /* Project object */;
 }

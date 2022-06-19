@@ -1,0 +1,10 @@
+platform :ios, '11.0'
+# Uncomment the next line to define a global platform for your project
+
+
+target 'AudioEngineerPractice' do
+
+  pod 'SnapKit', '~> 5.6.0'
+
+
+end
