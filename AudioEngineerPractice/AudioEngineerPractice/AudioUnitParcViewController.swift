@@ -8,8 +8,6 @@
 import UIKit
 import AVFAudio
 
-// https://juejin.cn/post/6980729874931515399#heading-27
-// https://stackoverflow.com/questions/63213753/ios-audio-units-connecting-with-graphs
 
 class AudioUnitParcViewController: UIViewController {
     /// 全局通用的采样率
@@ -18,41 +16,49 @@ class AudioUnitParcViewController: UIViewController {
     let ioBufferDuration: Double = 0.005
     /// 在 0.005 的延迟下 样本数量
     let ioBufferSampleCount: UInt32 = 256
-    /// 输入输出的音频单元
-    var audioUnit: AudioUnit?
-    /// 输入音频 buffer数组
-    var bufferList: AudioBufferList?
-    /// 通道数
-    let channelCount: UInt32 = 1
-    /// 采样深度 16 位 即 两个字节
-    let sampleDeepBytes: UInt32 = 2
-    /// 每个packet 的 frame 个数
-    let perPacketFrameCount: UInt32 = 1
-    /// audioUnit InputElement
-    let auInputElement: AudioUnitElement = 1
-    /// audioUnit OutputElement
-    let auOutputElement: AudioUnitElement = 0
-    ///从 AURemoteIO 取回属性值。 我们将使用这个值来相应地分配缓冲区
-    var maximumFramePerSlice: UInt32 = 0
     
-    /// AudioInputFormat
-    var asbd: AudioStreamBasicDescription?
+    let audioEngineer = AVAudioEngine.init()
     
-   
-    var auRenderCallBack: AURenderCallback?
+    
+    /// 混响效果器
+    let reverb = AVAudioUnitReverb.init()
+    
+    let player = JKSAudioEnginePlayer.init()
+    /// 播放器的下个节点
+    let playerMix = AVAudioMixerNode.init()
+    /// 音频输入的混音节点
+    let inputEndMix = AVAudioMixerNode()
+    
+    /// 音频 pcm 录制文件
+    var audioRecordFile: AVAudioFile?
+    /// 音频 pcm 录制文件的 句柄
+//    var audioRecordFileHandle: FileHandle?
+    /// 是否正在录制
+    var recording = false
+    /// 录制时长 ms
+    var recordDuration: Int = 0
+    /// 伴奏播放计时器
+    var accomTimer: Timer?
+    
+    
+    @IBOutlet weak var accomProgressSlider: UISlider!
+    
+    
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         setAuduiSession()
-        initASBD()
-        setupAudioUnit()
+        configAudioNode()
+        
+       
     }
 
     func setAuduiSession() {
         let aseesion = AVAudioSession.sharedInstance()
         do {
             try aseesion.setPreferredSampleRate(graphSampleRate)
-            let samrate = aseesion.sampleRate
+            let samrate = aseesion.preferredSampleRate
             try aseesion.overrideOutputAudioPort(.none)
             try aseesion.setCategory(.playAndRecord, options: [.allowBluetooth, .allowBluetoothA2DP])
             // 1.通过设置延迟，来控制 buffer 大小
@@ -62,239 +68,132 @@ class AudioUnitParcViewController: UIViewController {
             try aseesion.setPreferredIOBufferDuration(self.ioBufferDuration)
             debugPrint("----- 音频 IO buffer 延迟设置--：\(aseesion.preferredIOBufferDuration)秒 采样率：\(samrate)")
             
+            try aseesion.setPreferredOutputNumberOfChannels(1)
+            debugPrint("----- 音频通道 输出设置结果：\(aseesion.preferredOutputNumberOfChannels)")
+            
+//            try aseesion.setPreferredInputNumberOfChannels(1)
+//            debugPrint("----- 音频通道 输入设置结果：\(aseesion.preferredInputNumberOfChannels)")
+            
             try aseesion.setActive(true, options: .notifyOthersOnDeactivation)
             self.graphSampleRate = aseesion.sampleRate
         }catch let erroro {
             debugPrint("--- AudioSession 设置出错\(erroro.localizedDescription)")
         }
     }
-    /// 初始化一个 asbd
-    func initASBD() {
-        // 样本数据为 Integer 和 设置样本位是否占据了通道的全部可用位，清除它们在通道内是高对齐还是低对齐。
-        let afFlag: AudioFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked
-        
-        let perPacketBytes: UInt32 = self.channelCount * self.sampleDeepBytes * 1 * self.perPacketFrameCount
-        let perFrameBytes: UInt32 = 1 * self.sampleDeepBytes * self.channelCount
-        
-        let asbdd: AudioStreamBasicDescription = AudioStreamBasicDescription.init(mSampleRate: Float64(self.graphSampleRate),
-                                                                                 mFormatID: kAudioFormatLinearPCM,
-                                                                                 mFormatFlags: afFlag,
-                                                                                 mBytesPerPacket: perPacketBytes,
-                                                                                 mFramesPerPacket: self.perPacketFrameCount,
-                                                                                 mBytesPerFrame: perFrameBytes,
-                                                                                 mChannelsPerFrame: self.channelCount,
-                                                                                 mBitsPerChannel: self.channelCount * 16,
-                                                                                 mReserved: 0)// mReserved参数: 填充结构以强制均匀的8字节对齐。必须设置为0。
-        self.asbd = asbdd
-        
-    }
-    /// 设置并初始化音频单元
-    func setupAudioUnit() {
-            
-        //1. 配置一个音频单元说明符
-        var ioUnitDescription = AudioComponentDescription.init(componentType:kAudioUnitType_Output,
-                                                               componentSubType: kAudioUnitSubType_RemoteIO,
-                                                               componentManufacturer: kAudioUnitManufacturer_Apple,
-                                                               componentFlags: 0,
-                                                               componentFlagsMask: 0)
-        
-        
-        
-        
     
-
+    func configAudioNode() {
+        self.reverb.loadFactoryPreset(.largeRoom2)
+        // 0->100
+        self.reverb.wetDryMix = 100
         
-        //2.获取音频单元指针
+        let format = audioEngineer.inputNode.outputFormat(forBus: 0)
+        debugPrint("------ inputNode formatSetting:\(format)")
         
-        guard let auComponent = AudioComponentFindNext(nil, &ioUnitDescription) else{
-            debugPrint("----- AudioComponentFindNext(nil, &ioUnitDescription)")
-            return
-        }
-        let auComponentStatus = AudioComponentInstanceNew(auComponent, &self.audioUnit)
+        let wantFormat = AppleSamplerTestViewController.audioEngineNodeOutputFormat()!
         
-        if auComponentStatus != noErr {
-            debugPrint("---- AudioComponentInstanceNew(auComponent, &aunit) OSStatus Error")
-        }
-        guard let audioUnit = self.audioUnit else {
-            debugPrint("---- audioUnit 初始化失败")
-            return
-        }
         
-        // 3. 设置音频单元的相关属性
-        self.setAudioUnitProperty(audioUt: audioUnit)
+        //把混响附着到音频引擎
+        self.audioEngineer.attach(self.reverb)
+        self.audioEngineer.attach(self.player)
+        self.audioEngineer.attach(self.playerMix)
+        self.audioEngineer.attach(self.inputEndMix)
+        // 一次链接 输入-> 混响 -> 输出
+        self.audioEngineer.connect(self.audioEngineer.inputNode, to: reverb, format: format)
+        self.audioEngineer.connect(reverb, to: inputEndMix, format: format)
+        self.audioEngineer.connect(inputEndMix, to: audioEngineer.mainMixerNode, format: wantFormat)
+        self.audioEngineer.connect(self.player, to: self.playerMix, format: self.player.outputFormat(forBus: 0))
+        self.audioEngineer.connect(self.playerMix, to: self.audioEngineer.mainMixerNode, format: wantFormat)
+        self.audioEngineer.connect(self.audioEngineer.mainMixerNode, to: self.audioEngineer.outputNode, format: wantFormat)
+        self.audioEngineer.mainMixerNode.volume = 0
         
-        // 4. 配置音频单元回调
-        /// 音频单元回调
-        /// - Parameters:
-        ///   - inRefCon: 音频单元注册 回调时的自定义数据
-        ///   - ioActionFlags: 用于描述有关此调用上下文的更多信息的标志（例如通知案例中的pre或post）。
-        ///   - inTimeStamp: 与此音频单元渲染调用相关的时间戳。
-        ///   - inBusNumber: 与此音频单元渲染调用关联的总线编号。
-        ///   - inNumberFrames: 提供的ioData参数中音频数据中将表示的示例帧数。
-        ///   - ioData: 用于包含渲染或提供的音频数据的AudioBufferList。
-        /// - Returns: 结果代码
-        self.auRenderCallBack = {(inRefCon, ioActionFlags, inTimeStamp, inBusNumber, inNumberFrames, ioData) ->OSStatus in
-            // C 函数的 闭包里 不能 直接从外部引用self，需要通过下边这种方式 否则报错：A C function pointer cannot be formed from a closure that captures context
-            
-            let contBridge: AudioUnitParcViewController = Unmanaged<AudioUnitParcViewController>.fromOpaque(inRefCon).takeUnretainedValue()
-            
-            guard let audioUnit = contBridge.audioUnit else {
-                debugPrint("-- 音频单元为空或音频buffer空 回调直接返回")
-                return OSStatus.init(2.0)
+        
+        
+        
+        self.inputEndMix.installTap(onBus: AVAudioNodeBus(0), bufferSize: .max, format: wantFormat) {[weak self] pcmbuffer, time in
+            guard let sself = self, sself.recording else{
+//                JKprint("queue sself nil")
+                return
             }
-            guard  let ioDataRes = ioData else{
-                debugPrint("--- 音频回调数据  nil ")
-                return OSStatus.init(3.0)
+//            debugPrint("----- 麦克风最终混音节点输出流format：\(pcmbuffer.format.settings), ")
+            do{
+                try sself.audioRecordFile?.write(from: pcmbuffer)
+            }catch let eore{
+                debugPrint("----- 音频写入出错：\(eore.localizedDescription)")
             }
-            
-            if AudioUnitRender(audioUnit, ioActionFlags, inTimeStamp, 1, inNumberFrames, ioDataRes) != noErr {
-                debugPrint("AudioUnitRender Error")
-            }
-            
-            let auBuffer = ioDataRes.pointee.mBuffers
-            
-            let bufferSize = auBuffer.mDataByteSize
-            if let bufferData = auBuffer.mData {
-                debugPrint("--- bufferData字节，---size:\(bufferSize)")
-            }else{
-                debugPrint("--- bufferData 无数据")
-            }
-            
-            
-            return noErr
         }
         
-        
-        let selfPointer = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque()))
-        
-        var auRenderCallbackStruct = AURenderCallbackStruct.init(inputProc: self.auRenderCallBack, inputProcRefCon: selfPointer)
-
-        let setAuRenderCallbackStruce = AudioUnitSetProperty(audioUnit,
-                                                             kAudioUnitProperty_SetRenderCallback,
-                                                             kAudioUnitScope_Input,
-                                                             self.auOutputElement,
-                                                             &auRenderCallbackStruct,
-                                                             UInt32(MemoryLayout.size(ofValue: auRenderCallbackStruct)))
-        if setAuRenderCallbackStruce != noErr {
-            debugPrint("---- 设置AudioUnit CallBackStruct 失败")
-        }
-            
-        // 实例化音频单元
-        if AudioUnitInitialize(audioUnit) != noErr {
-            debugPrint("--- 音频单元 Initialize 失败")
-            return
-        }
-            
-        
-    }
-    func startAudioUnit() {
-        guard let auit = self.audioUnit else{
-            debugPrint("--- 开始音频单元失败-- 音频单元 nil")
-            return
-        }
-        // .音频输入输出单元启动
-        let aUnitStartOSStatus = AudioOutputUnitStart(auit)
-        if aUnitStartOSStatus != noErr {
-            debugPrint("---- 音频输入输出单元启动失败---- ")
-        }
-    }
-    func stopAudioUnit() {
-        guard let auit = self.audioUnit else{
-            debugPrint("--- 开始音频单元失败-- 音频单元 nil")
-            return
-        }
-        if AudioOutputUnitStop(auit) != noErr {
-            debugPrint("---- 音频单元停止失败")
-        }
+//        self.player.installTap(onBus: 0, bufferSize: .max, format: format) {[weak self] pcmBuffer, time in
+//            debugPrint("----- 播放节点流数据format：\(pcmBuffer.format.settings), 可用帧数:\(pcmBuffer.frameLength)")
+//            guard let sself = self else{
+////                JKprint("queue sself nil")
+//                return
+//            }
+//            guard let audioConver = sself.audioConver else {
+//                return
+//            }
+//
+//            if let restBuffer = AVAudioPCMBuffer.init(pcmFormat: AppleSamplerTestViewController.audioEngineNodeOutputFormat()!, frameCapacity: pcmBuffer.frameLength) {
+//                do{
+//                    try audioConver.convert(to: restBuffer, from: pcmBuffer)
+//                    debugPrint("----- 格式转换成功--:\(restBuffer.format.settings), 可用帧数:\(restBuffer.frameLength)")
+//                }catch let eore {
+//                    debugPrint("----- pcmBuffer 格式转换出错:\(eore.localizedDescription)")
+//                }
+//            }else{
+//                debugPrint("----- resPCMBuffer 创建出错")
+//            }
+//
+//        }
     }
     
-    /// 配置音频单元
-    func setAudioUnitProperty(audioUt: AudioUnit) {
-        guard var auForma = asbd else{
-            debugPrint("-- audioFormat 为 空-----❌")
-            return
+    
+    func startAudioEngine() {
+        do {
+            try self.audioEngineer.start()
+        } catch let eorre {
+            debugPrint("音频引擎启动出错------\(eorre.localizedDescription)")
         }
         
-        
-        var enableInput: UInt32 = 1
-        var disableOutput: UInt32 = 0
-        var enableOutput: UInt32 = 1
-        //开启音频输入 音频单元默认 启用了输出，禁用了输入 在此处开启输入
-        let openInputStatus = AudioUnitSetProperty(audioUt,
-                                                   kAudioOutputUnitProperty_EnableIO,
-                                                   kAudioUnitScope_Input,
-                                                   self.auInputElement,
-                                                   &enableInput,
-                                                   UInt32(MemoryLayout.size(ofValue: enableInput)))
-        if openInputStatus != noErr {
-            debugPrint("---audioUnit OpenInput Error!")
-        }
-        
-        var outputSwitch = false
-        if outputSwitch {
-            //打开输出
-            if AudioUnitSetProperty(audioUt,
-                                    kAudioOutputUnitProperty_EnableIO,
-                                    kAudioUnitScope_Output,
-                                    self.auOutputElement,
-                                    &disableOutput,
-                                    UInt32(MemoryLayout.size(ofValue: disableOutput))) != noErr
-            {
-                debugPrint("---- AudioUnitSetPro 打开输出错误")
+    }
+
+    /// 新增整个伴奏播放计划
+    func prepareAccomAndRecordFile() {
+        if let fourSeason = Bundle.main.url(forResource: "fourSeason", withExtension: "mp3") {
+            do {
+                let accFile = try AVAudioFile.init(forReading: fourSeason)
+                self.player.loadAudioFile(file: accFile) {
+                    [weak self] in
+                    guard let sself = self else{
+//                        JKprint("queue sself nil")
+                        return
+                    }
+                    sself.recording = false
+                    sself.accomTimer?.invalidate()
+                    sself.accomTimer = nil
+                    DispatchQueue.main.async {
+                        sself.player.stop()
+                    }
+                }
+                self.accomProgressSlider.minimumValue = 0
+                self.accomProgressSlider.maximumValue = Float(self.player.duration * 1000)
+                self.accomProgressSlider.setValue(0, animated: false)
+                let tmpTime = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(accPlayerRepeatTask), userInfo: nil, repeats: true)
+                self.accomTimer = tmpTime
+                RunLoop.current.add(self.accomTimer!, forMode: .common)
+                
+                
+                if audioRecordFile == nil {
+                    let fm = FileManager.default
+                    let fileUrl = fm.temporaryDirectory.appendingPathComponent(UUID().uuidString).appendingPathExtension("pcm")
+                    fm.createFile(atPath: fileUrl.path, contents: nil)
+                    audioRecordFile = try AVAudioFile.init(forWriting: fileUrl, settings: AppleSamplerTestViewController.audioEngineNodeOutputFormat()!.settings)
+                }
+                
+             
+            } catch let eorr {
+                debugPrint("----- 发生错误  \(eorr.localizedDescription)")
             }
-        }else {
-            // 关闭输出（可以在 扬声器情况下 禁用输出）
-            let closeOutputStatus = AudioUnitSetProperty(audioUt,
-                                                         kAudioOutputUnitProperty_EnableIO,
-                                                         kAudioUnitScope_Output,
-                                                         self.auOutputElement,
-                                                         &disableOutput,
-                                                         UInt32(MemoryLayout.size(ofValue: disableOutput)))
-            if closeOutputStatus != noErr {
-                debugPrint("--- AudioUnit close Output Error!")
-            }
-        }
-        
-        // 设置连接两个 unit 的管道大小 与setPreferredIOBufferDuration 的大小有关 默认使用 4096
-        var maxSlice: UInt32 = 4096
-        
-        /// 指定音频单元在一次调用其 AudioUnitRender(_:_:_:_:_:_:) 函数时准备提供的最大样本帧数。
-        if AudioUnitSetProperty(audioUt,
-                                kAudioUnitProperty_MaximumFramesPerSlice,
-                                kAudioUnitScope_Global,
-                                self.auOutputElement,
-                                &maxSlice,
-                                UInt32(MemoryLayout<UInt32>.stride)) != noErr
-        {
-            debugPrint("----- AudioUnit设置 最大切片出错")
-        }
-        
-        
-        // 从 AURemoteIO 取回属性值。 我们将使用这个值来相应地分配缓冲区
-        if AudioUnitGetProperty(audioUt,
-                                    kAudioUnitProperty_MaximumFramesPerSlice,
-                                    kAudioUnitScope_Global,
-                                    self.auOutputElement,
-                                    &maxSlice,
-                                    &maximumFramePerSlice) != noErr
-        {
-            debugPrint("--- 取回 maximumFramesPerSlice 出错")
-        }
-        
-        
-        // 设置输出格式
-        let outPutFormatStatus = AudioUnitSetProperty(audioUt, kAudioUnitProperty_StreamFormat,
-                                                      kAudioUnitScope_Output,
-                                                      self.auInputElement,
-                                                      &auForma,
-                                                      UInt32(MemoryLayout.size(ofValue: auForma)))
-        if outPutFormatStatus != noErr {
-            debugPrint("--- audioUnit Output Stream Format Error!")
-        }
-        
-       // 设置输入格式
-        if AudioUnitSetProperty(audioUt, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, self.auOutputElement, &auForma, UInt32(MemoryLayout.size(ofValue: auForma))) != noErr {
-            debugPrint("---- 设置音频输入格式错误")
+            
         }
     }
     
@@ -302,10 +201,54 @@ class AudioUnitParcViewController: UIViewController {
     // MARK: - Action
     
     @IBAction func startTouch(_ sender: UIButton) {
-        startAudioUnit()
+        if self.recording {
+            return
+        }
+        self.audioRecordFile = nil
+        startAudioEngine()
+        prepareAccomAndRecordFile()
+        self.recording = true
+        self.player.play()
+        self.accomTimer?.fire()
     }
     
     @IBAction func stopTouch(_ sender: UIButton) {
-        stopAudioUnit()
+        self.audioEngineer.stop()
+        self.recording = false
+        self.player.stop()
+        self.accomTimer?.invalidate()
+        self.accomTimer = nil
+        guard let audioRecordFile = audioRecordFile else {
+            return
+        }
+        debugPrint("------ 音频录制文件地址：\(audioRecordFile.url)")
+    }
+    
+    @IBAction func accomProgressChanged(_ sender: UISlider) {
+        
+    }
+    @IBAction func accomProgressChangedEnd(_ sender: UISlider) {
+        /// 计算剔除录制文件 内容大小，并剔除已录制的内容
+        let format = self.audioEngineer.inputNode.inputFormat(forBus: 0)
+        
+        /// 开始录制
+        if self.player.seekTo(time: Double(sender.value)/1000, completeHandle: nil) {
+            self.recording = true
+        }
+        debugPrint("------- 录制进度调整结束，调整至:\(sender.value)s")
+    }
+    @IBAction func accomProgressChangedStart(_ sender: UISlider) {
+        self.recording = false
+        debugPrint("---- 录制进度调整开始，当前进度：\(sender.value)s")
+    }
+    
+    @objc func accPlayerRepeatTask() {
+        if !self.recording {
+            return
+        }
+        let currentT = self.player.currentTime
+        DispatchQueue.main.async {
+            self.accomProgressSlider.setValue(Float(currentT) * 1000, animated: true)
+        }
     }
 }

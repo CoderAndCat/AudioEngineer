@@ -8,26 +8,63 @@
 
 /* Begin PBXBuildFile section */
 		8019C6A327BE237A006B02B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019C6A227BE237A006B02B3 /* AppDelegate.swift */; };
-		8019C6A727BE237A006B02B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019C6A627BE237A006B02B3 /* ViewController.swift */; };
+		8019C6A727BE237A006B02B3 /* AudioEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019C6A627BE237A006B02B3 /* AudioEffectViewController.swift */; };
 		8019C6AA27BE237A006B02B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6A827BE237A006B02B3 /* Main.storyboard */; };
 		8019C6AC27BE237C006B02B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6AB27BE237C006B02B3 /* Assets.xcassets */; };
 		8019C6AF27BE237C006B02B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6AD27BE237C006B02B3 /* LaunchScreen.storyboard */; };
 		8019C6B827BE2DC4006B02B3 /* fourSeason.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */; };
+		803F03BE2848D8F100317A11 /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F03BD2848D8F100317A11 /* GradientLabel.swift */; };
+		803F42EA282A040900A552AA /* CommonAudioPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */; };
 		8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053107C27C202330044D481 /* AudioUnitParcViewController.swift */; };
 		8053107F27C202330044D481 /* AudioUnitParcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8053107D27C202330044D481 /* AudioUnitParcViewController.xib */; };
+		80BBBF7A28433989004521CF /* AVAssetDealTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */; };
+		80BBBF7B28433989004521CF /* AVAssetDealTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF7928433989004521CF /* AVAssetDealTestViewController.xib */; };
+		80BBBF7E28433A43004521CF /* record2.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF7C28433A43004521CF /* record2.pcm */; };
+		80BBBF7F28433A43004521CF /* record1.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF7D28433A43004521CF /* record1.pcm */; };
+		80BBBF8228436B5A004521CF /* record11.caf in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF8028436B5A004521CF /* record11.caf */; };
+		80BBBF8328436B5A004521CF /* record2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF8128436B5A004521CF /* record2.caf */; };
+		80BBBF862844680C004521CF /* HuaLangCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF842844680C004521CF /* HuaLangCollectionViewController.swift */; };
+		80BBBF872844680C004521CF /* HuaLangCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF852844680C004521CF /* HuaLangCollectionViewController.xib */; };
+		80BBBF8A28446CF7004521CF /* GalleryFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF8928446CF7004521CF /* GalleryFlowLayout.swift */; };
+		80BBBF8D284477B4004521CF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 80BBBF8C284477B4004521CF /* SnapKit */; };
+		80BBBF9F284640CA004521CF /* GradienetTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF9E284640CA004521CF /* GradienetTestViewController.swift */; };
+		80BBBFA828470C21004521CF /* MultipleAudioTrackMixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBFA628470C21004521CF /* MultipleAudioTrackMixViewController.swift */; };
+		80BBBFA928470C21004521CF /* MultipleAudioTrackMixViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */; };
+		80C54414283B3440001FEB00 /* AppleSamplerTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */; };
+		80C54415283B3440001FEB00 /* AppleSamplerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */; };
+		80C5441A283B5C4C001FEB00 /* Library2.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 80C54419283B5C4C001FEB00 /* Library2.sf2 */; };
+		80C5441C283B5CAD001FEB00 /* QuDiMK6.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8019C69F27BE237A006B02B3 /* AudioEngineerPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioEngineerPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8019C6A227BE237A006B02B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8019C6A627BE237A006B02B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8019C6A627BE237A006B02B3 /* AudioEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectViewController.swift; sourceTree = "<group>"; };
 		8019C6A927BE237A006B02B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8019C6AB27BE237C006B02B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8019C6AE27BE237C006B02B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8019C6B027BE237C006B02B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fourSeason.mp3; sourceTree = "<group>"; };
+		803F03BD2848D8F100317A11 /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
+		803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAudioPlayerNode.swift; sourceTree = "<group>"; };
 		8053107C27C202330044D481 /* AudioUnitParcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitParcViewController.swift; sourceTree = "<group>"; };
 		8053107D27C202330044D481 /* AudioUnitParcViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioUnitParcViewController.xib; sourceTree = "<group>"; };
+		80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetDealTestViewController.swift; sourceTree = "<group>"; };
+		80BBBF7928433989004521CF /* AVAssetDealTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVAssetDealTestViewController.xib; sourceTree = "<group>"; };
+		80BBBF7C28433A43004521CF /* record2.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = record2.pcm; sourceTree = "<group>"; };
+		80BBBF7D28433A43004521CF /* record1.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = record1.pcm; sourceTree = "<group>"; };
+		80BBBF8028436B5A004521CF /* record11.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = record11.caf; sourceTree = "<group>"; };
+		80BBBF8128436B5A004521CF /* record2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = record2.caf; sourceTree = "<group>"; };
+		80BBBF842844680C004521CF /* HuaLangCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuaLangCollectionViewController.swift; sourceTree = "<group>"; };
+		80BBBF852844680C004521CF /* HuaLangCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HuaLangCollectionViewController.xib; sourceTree = "<group>"; };
+		80BBBF8928446CF7004521CF /* GalleryFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFlowLayout.swift; sourceTree = "<group>"; };
+		80BBBF9E284640CA004521CF /* GradienetTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradienetTestViewController.swift; sourceTree = "<group>"; };
+		80BBBFA628470C21004521CF /* MultipleAudioTrackMixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAudioTrackMixViewController.swift; sourceTree = "<group>"; };
+		80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleAudioTrackMixViewController.xib; sourceTree = "<group>"; };
+		80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSamplerTestViewController.swift; sourceTree = "<group>"; };
+		80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleSamplerTestViewController.xib; sourceTree = "<group>"; };
+		80C54419283B5C4C001FEB00 /* Library2.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Library2.sf2; sourceTree = "<group>"; };
+		80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuDiMK6.sf2; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80BBBF8D284477B4004521CF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,15 +98,27 @@
 		8019C6A127BE237A006B02B3 /* AudioEngineerPractice */ = {
 			isa = PBXGroup;
 			children = (
+				80BBBF8E2844994B004521CF /* View */,
+				80BBBF8828446CAD004521CF /* Model */,
+				803F42E8282A03C000A552AA /* commonPro */,
 				8019C6B627BE2D90006B02B3 /* resources */,
 				8019C6A227BE237A006B02B3 /* AppDelegate.swift */,
-				8019C6A627BE237A006B02B3 /* ViewController.swift */,
+				8019C6A627BE237A006B02B3 /* AudioEffectViewController.swift */,
 				8019C6A827BE237A006B02B3 /* Main.storyboard */,
 				8019C6AB27BE237C006B02B3 /* Assets.xcassets */,
 				8019C6AD27BE237C006B02B3 /* LaunchScreen.storyboard */,
 				8019C6B027BE237C006B02B3 /* Info.plist */,
 				8053107C27C202330044D481 /* AudioUnitParcViewController.swift */,
 				8053107D27C202330044D481 /* AudioUnitParcViewController.xib */,
+				80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */,
+				80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */,
+				80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */,
+				80BBBF7928433989004521CF /* AVAssetDealTestViewController.xib */,
+				80BBBF842844680C004521CF /* HuaLangCollectionViewController.swift */,
+				80BBBF852844680C004521CF /* HuaLangCollectionViewController.xib */,
+				80BBBF9E284640CA004521CF /* GradienetTestViewController.swift */,
+				80BBBFA628470C21004521CF /* MultipleAudioTrackMixViewController.swift */,
+				80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */,
 			);
 			path = AudioEngineerPractice;
 			sourceTree = "<group>";
@@ -76,9 +126,39 @@
 		8019C6B627BE2D90006B02B3 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				80BBBF7D28433A43004521CF /* record1.pcm */,
+				80BBBF7C28433A43004521CF /* record2.pcm */,
+				80BBBF8028436B5A004521CF /* record11.caf */,
+				80BBBF8128436B5A004521CF /* record2.caf */,
+				80C54419283B5C4C001FEB00 /* Library2.sf2 */,
+				80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */,
 				8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		803F42E8282A03C000A552AA /* commonPro */ = {
+			isa = PBXGroup;
+			children = (
+				803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */,
+			);
+			path = commonPro;
+			sourceTree = "<group>";
+		};
+		80BBBF8828446CAD004521CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				80BBBF8928446CF7004521CF /* GalleryFlowLayout.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		80BBBF8E2844994B004521CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				803F03BD2848D8F100317A11 /* GradientLabel.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +177,9 @@
 			dependencies = (
 			);
 			name = AudioEngineerPractice;
+			packageProductDependencies = (
+				80BBBF8C284477B4004521CF /* SnapKit */,
+			);
 			productName = AudioEngineerPractice;
 			productReference = 8019C69F27BE237A006B02B3 /* AudioEngineerPractice.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +208,9 @@
 				Base,
 			);
 			mainGroup = 8019C69627BE237A006B02B3;
+			packageReferences = (
+				80BBBF8B284477B4004521CF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 8019C6A027BE237A006B02B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,11 +225,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80BBBF7B28433989004521CF /* AVAssetDealTestViewController.xib in Resources */,
+				80C54415283B3440001FEB00 /* AppleSamplerTestViewController.xib in Resources */,
 				8053107F27C202330044D481 /* AudioUnitParcViewController.xib in Resources */,
+				80BBBF7E28433A43004521CF /* record2.pcm in Resources */,
 				8019C6AF27BE237C006B02B3 /* LaunchScreen.storyboard in Resources */,
+				80BBBF872844680C004521CF /* HuaLangCollectionViewController.xib in Resources */,
+				80BBBF7F28433A43004521CF /* record1.pcm in Resources */,
 				8019C6AC27BE237C006B02B3 /* Assets.xcassets in Resources */,
 				8019C6AA27BE237A006B02B3 /* Main.storyboard in Resources */,
+				80BBBFA928470C21004521CF /* MultipleAudioTrackMixViewController.xib in Resources */,
+				80BBBF8328436B5A004521CF /* record2.caf in Resources */,
 				8019C6B827BE2DC4006B02B3 /* fourSeason.mp3 in Resources */,
+				80C5441C283B5CAD001FEB00 /* QuDiMK6.sf2 in Resources */,
+				80C5441A283B5C4C001FEB00 /* Library2.sf2 in Resources */,
+				80BBBF8228436B5A004521CF /* record11.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,8 +250,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8019C6A727BE237A006B02B3 /* ViewController.swift in Sources */,
+				80BBBF8A28446CF7004521CF /* GalleryFlowLayout.swift in Sources */,
+				80BBBF9F284640CA004521CF /* GradienetTestViewController.swift in Sources */,
+				803F42EA282A040900A552AA /* CommonAudioPlayerNode.swift in Sources */,
+				8019C6A727BE237A006B02B3 /* AudioEffectViewController.swift in Sources */,
+				803F03BE2848D8F100317A11 /* GradientLabel.swift in Sources */,
+				80BBBF7A28433989004521CF /* AVAssetDealTestViewController.swift in Sources */,
 				8019C6A327BE237A006B02B3 /* AppDelegate.swift in Sources */,
+				80BBBFA828470C21004521CF /* MultipleAudioTrackMixViewController.swift in Sources */,
+				80C54414283B3440001FEB00 /* AppleSamplerTestViewController.swift in Sources */,
+				80BBBF862844680C004521CF /* HuaLangCollectionViewController.swift in Sources */,
 				8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,8 +412,10 @@
 				DEVELOPMENT_TEAM = ALPRUF67F5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "use microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -337,8 +443,10 @@
 				DEVELOPMENT_TEAM = ALPRUF67F5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "use microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -378,6 +486,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80BBBF8B284477B4004521CF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		80BBBF8C284477B4004521CF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80BBBF8B284477B4004521CF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8019C69727BE237A006B02B3 /* Project object */;
 }

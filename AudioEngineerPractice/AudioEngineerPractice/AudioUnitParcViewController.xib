@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioUnitParcViewController" customModule="AudioEngineerPractice" customModuleProvider="target">
             <connections>
+                <outlet property="accomProgressSlider" destination="gLd-4R-vEE" id="xZc-1D-eUx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,9 +46,23 @@
                         <action selector="startTouch:" destination="-1" eventType="touchUpInside" id="mYd-bN-bU8"/>
                     </connections>
                 </button>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-4R-vEE">
+                    <rect key="frame" x="18" y="90" width="378" height="31"/>
+                    <connections>
+                        <action selector="accomProgressChanged:" destination="-1" eventType="valueChanged" id="JM5-o7-E3t"/>
+                        <action selector="accomProgressChangedEnd:" destination="-1" eventType="touchUpOutside" id="0JP-qy-Odo"/>
+                        <action selector="accomProgressChangedEnd:" destination="-1" eventType="touchUpInside" id="RY5-cW-IIO"/>
+                        <action selector="accomProgressChangedStart:" destination="-1" eventType="touchDown" id="sAL-dx-15O"/>
+                    </connections>
+                </slider>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gLd-4R-vEE" secondAttribute="trailing" constant="20" id="A6w-bW-wph"/>
+                <constraint firstItem="gLd-4R-vEE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="46" id="GgW-uq-Krx"/>
+                <constraint firstItem="gLd-4R-vEE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Mvy-fL-pOk"/>
+            </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
         </view>
     </objects>
