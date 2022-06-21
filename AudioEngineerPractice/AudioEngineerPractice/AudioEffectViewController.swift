@@ -98,6 +98,11 @@ class AudioEffectViewController: UIViewController {
         }.map({ $0.element })
         debugPrint("---去重数组： \(testArray)")
         
+        // 分贝 音量转换
+        
+        let db = 20 * log(1.0)
+        debugPrint("---- 分贝转换音量：\(db)")
+        
     }
 
 
