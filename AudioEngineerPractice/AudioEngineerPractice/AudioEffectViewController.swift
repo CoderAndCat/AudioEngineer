@@ -100,8 +100,8 @@ class AudioEffectViewController: UIViewController {
         
         // 分贝 音量转换
         
-        let db = 20 * log(1.0)
-        debugPrint("---- 分贝转换音量：\(db)")
+        let a1 = 0.5 * pow(10, 48/20)
+        debugPrint("---- 分贝转换音量：\(a1)")
         
     }
 
@@ -359,6 +359,11 @@ class AudioEffectViewController: UIViewController {
     @IBAction private func mixAudioTrack(_ sender: UIButton) {
         let mixVC = MultipleAudioTrackMixViewController.init(nibName: "MultipleAudioTrackMixViewController", bundle: nil)
         self.navigationController?.pushViewController(mixVC, animated: true)
+    }
+    /// 毛玻璃效果 vc
+    @IBAction private func visualEffectVC(_ sender: UIButton) {
+        let visualEVC = VisualEffectViewController.init(nibName: "VisualEffectViewController", bundle: nil)
+        self.navigationController?.pushViewController(visualEVC, animated: true)
     }
 }
 

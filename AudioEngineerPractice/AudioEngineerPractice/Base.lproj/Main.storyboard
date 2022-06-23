@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r5I-vh-AP1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r5I-vh-AP1">
     <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -270,12 +270,25 @@
                                                     <action selector="enterNextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xzD-Uy-MV9"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaa-i0-DOI">
+                                                <rect key="frame" x="669" y="96" width="100" height="32"/>
+                                                <color key="backgroundColor" red="0.87450980389999999" green="0.69411764710000001" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="毛玻璃"/>
+                                                <connections>
+                                                    <action selector="visualEffectVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3CL-nd-BIX"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
                                             <constraint firstItem="DSh-wG-0Jx" firstAttribute="leading" secondItem="ShR-8k-zVi" secondAttribute="trailing" constant="8" symbolic="YES" id="138-Sk-CKY"/>
                                             <constraint firstItem="yov-EJ-gaz" firstAttribute="leading" secondItem="WJl-UU-a0h" secondAttribute="trailing" constant="8" symbolic="YES" id="2X2-El-C4d"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zaa-i0-DOI" secondAttribute="bottom" id="3yC-3f-7X8"/>
                                             <constraint firstAttribute="bottom" secondItem="ShR-8k-zVi" secondAttribute="bottom" id="84f-3t-EMd"/>
+                                            <constraint firstItem="Zaa-i0-DOI" firstAttribute="leading" secondItem="l0m-6w-BhV" secondAttribute="trailing" constant="8" id="AZn-eh-4RA"/>
                                             <constraint firstItem="WJl-UU-a0h" firstAttribute="leading" secondItem="4af-yi-dYa" secondAttribute="leading" id="FCh-UN-fEP"/>
                                             <constraint firstItem="l0m-6w-BhV" firstAttribute="leading" secondItem="DSh-wG-0Jx" secondAttribute="trailing" constant="8" symbolic="YES" id="IK7-WR-RWC"/>
                                             <constraint firstAttribute="bottom" secondItem="l0m-6w-BhV" secondAttribute="bottom" id="Jsm-Uy-xGE"/>

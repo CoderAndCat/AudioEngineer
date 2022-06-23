@@ -15,6 +15,8 @@
 		8019C6B827BE2DC4006B02B3 /* fourSeason.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */; };
 		803F03BE2848D8F100317A11 /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F03BD2848D8F100317A11 /* GradientLabel.swift */; };
 		803F42EA282A040900A552AA /* CommonAudioPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */; };
+		80476B1C28648C2C0046129E /* VisualEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80476B1A28648C2C0046129E /* VisualEffectViewController.swift */; };
+		80476B1D28648C2C0046129E /* VisualEffectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80476B1B28648C2C0046129E /* VisualEffectViewController.xib */; };
 		8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053107C27C202330044D481 /* AudioUnitParcViewController.swift */; };
 		8053107F27C202330044D481 /* AudioUnitParcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8053107D27C202330044D481 /* AudioUnitParcViewController.xib */; };
 		80BBBF7A28433989004521CF /* AVAssetDealTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */; };
@@ -49,6 +51,8 @@
 		8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fourSeason.mp3; sourceTree = "<group>"; };
 		803F03BD2848D8F100317A11 /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
 		803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAudioPlayerNode.swift; sourceTree = "<group>"; };
+		80476B1A28648C2C0046129E /* VisualEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectViewController.swift; sourceTree = "<group>"; };
+		80476B1B28648C2C0046129E /* VisualEffectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisualEffectViewController.xib; sourceTree = "<group>"; };
 		8053107C27C202330044D481 /* AudioUnitParcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitParcViewController.swift; sourceTree = "<group>"; };
 		8053107D27C202330044D481 /* AudioUnitParcViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioUnitParcViewController.xib; sourceTree = "<group>"; };
 		80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetDealTestViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +92,6 @@
 				3006FE1A294DA061069057E8 /* Pods-AudioEngineerPractice.debug.xcconfig */,
 				2031AF7602E6417CFFAF253F /* Pods-AudioEngineerPractice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -134,6 +137,8 @@
 				80BBBF9E284640CA004521CF /* GradienetTestViewController.swift */,
 				80BBBFA628470C21004521CF /* MultipleAudioTrackMixViewController.swift */,
 				80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */,
+				80476B1A28648C2C0046129E /* VisualEffectViewController.swift */,
+				80476B1B28648C2C0046129E /* VisualEffectViewController.xib */,
 			);
 			path = AudioEngineerPractice;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				80C5441C283B5CAD001FEB00 /* QuDiMK6.sf2 in Resources */,
 				80C5441A283B5C4C001FEB00 /* Library2.sf2 in Resources */,
 				80BBBF8228436B5A004521CF /* record11.caf in Resources */,
+				80476B1D28648C2C0046129E /* VisualEffectViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +309,7 @@
 				80BBBFA828470C21004521CF /* MultipleAudioTrackMixViewController.swift in Sources */,
 				80C54414283B3440001FEB00 /* AppleSamplerTestViewController.swift in Sources */,
 				80BBBF862844680C004521CF /* HuaLangCollectionViewController.swift in Sources */,
+				80476B1C28648C2C0046129E /* VisualEffectViewController.swift in Sources */,
 				8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +465,7 @@
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "use microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -490,6 +498,7 @@
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "use microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
