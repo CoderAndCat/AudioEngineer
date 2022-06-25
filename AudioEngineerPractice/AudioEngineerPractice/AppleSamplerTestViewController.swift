@@ -13,7 +13,8 @@ class AppleSamplerTestViewController: UIViewController {
     private let audioEngineer = AVAudioEngine()
     private let appleSample = AVAudioUnitSampler()
     
-    
+    /// 音频播放节点
+    private let playerNode = JKSAudioEnginePlayer.init()
     
     private let sampleRate: Float64 = 44100
     private let sampleBit: UInt32 = 32
@@ -27,7 +28,9 @@ class AppleSamplerTestViewController: UIViewController {
         super.viewDidLoad()
         prepareAudioEngineer()
         loadSF2ToSampler()
-        
+        // 读取并播放音频文件
+        loadAudioFile()
+        self.playerNode.play()
         
     }
     
@@ -45,9 +48,11 @@ class AppleSamplerTestViewController: UIViewController {
         
         audioEngineer.attach(appleSample)
         audioEngineer.attach(booster)
+        audioEngineer.attach(self.playerNode)
         
         audioEngineer.connect(appleSample, to: booster, format: Self.audioEngineNodeOutputFormat())
         audioEngineer.connect(booster, to: audioEngineer.mainMixerNode, format: Self.audioEngineNodeOutputFormat())
+        audioEngineer.connect(self.playerNode, to: audioEngineer.mainMixerNode, format: Self.audioEngineNodeOutputFormat())
         
         let format = appleSample.outputFormat(forBus: .min)
         debugPrint("采样器输出格式---:\(format.settings)")
@@ -83,6 +88,25 @@ class AppleSamplerTestViewController: UIViewController {
         } catch let erore {
             debugPrint("----- 音色文件加载出错--：\(erore.localizedDescription)")
         }
+        
+    }
+    private func loadAudioFile() {
+        guard let fouSeason = Bundle.main.url(forResource: "fourSeason", withExtension: "mp3") else{
+            debugPrint("---- 四季歌mp3文件未找到")
+            return
+        }
+        
+        do {
+            let avFile = try AVAudioFile.init(forReading: fouSeason)
+            self.playerNode.loadAudioFile(file: avFile, completeHandle: nil)
+            
+        } catch let rooe {
+            debugPrint("--- 四季歌 MP3 文件读取 出错:\(rooe.localizedDescription)")
+            return
+        }
+        
+        
+       
         
     }
     //MARK: - API
