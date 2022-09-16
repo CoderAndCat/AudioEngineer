@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport"
+		  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<title></title>
+	<script src="../js/http.js">
+	</script>
+	<script src="../js/renderNumberScore.js"></script>
+	<script src="../js/hammer.mini.js"></script>
+	<script src="../js/OsmdAudioPlayer.min.js">
+	</script>
+	<script src="../js/opensheetmusicdisplay.min.js">
+	</script>
+	<script src="../js/renderScore.js">
+	</script>
+	<script src="../js/jquery-3.6.0.min.js">
+	</script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background: rgb(255, 248, 235);
+		}
+		.score {
+			background: rgba(255,255,255,0);
+		}
+		.child_div_center {
+			height: 100vh;
+			width: 100vw;
+			/*overflow: scroll;*/
+			background: rgba(255,255,255,0);
+		}
+	</style>
+</head>
+<body>
+<div>
+	<div class="child_div_center">
+		<div id="osmdCanvas" class="score">
+		</div>
+	</div>
+</div>
+<script>
+	loadResource("../../resource/数鸭子.xml",1)
+</script>
+</body>
+
+</html>

@@ -7,18 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800394D9287530850041DC08 /* PlayMidiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800394D7287530850041DC08 /* PlayMidiViewController.swift */; };
+		800394DA287530850041DC08 /* PlayMidiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800394D8287530850041DC08 /* PlayMidiViewController.xib */; };
+		800394E6287564940041DC08 /* tx16w_GM_1.0.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 800394E5287564940041DC08 /* tx16w_GM_1.0.sf2 */; };
+		800394E9287581570041DC08 /* midi小星星3.mid in Resources */ = {isa = PBXBuildFile; fileRef = 800394E7287581560041DC08 /* midi小星星3.mid */; };
+		800394EA287581570041DC08 /* midi小星星3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 800394E8287581570041DC08 /* midi小星星3.mp3 */; };
 		8019C6A327BE237A006B02B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019C6A227BE237A006B02B3 /* AppDelegate.swift */; };
-		8019C6A727BE237A006B02B3 /* AudioEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019C6A627BE237A006B02B3 /* AudioEffectViewController.swift */; };
+		8019C6A727BE237A006B02B3 /* mainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019C6A627BE237A006B02B3 /* mainPage.swift */; };
 		8019C6AA27BE237A006B02B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6A827BE237A006B02B3 /* Main.storyboard */; };
 		8019C6AC27BE237C006B02B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6AB27BE237C006B02B3 /* Assets.xcassets */; };
 		8019C6AF27BE237C006B02B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6AD27BE237C006B02B3 /* LaunchScreen.storyboard */; };
 		8019C6B827BE2DC4006B02B3 /* fourSeason.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */; };
+		8030B39F287ECA5600E8C813 /* WebViewTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8030B39E287ECA5600E8C813 /* WebViewTestViewController.swift */; };
+		8030B3AD287EEEB500E8C813 /* renderMoveScoreV2.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A3287EEEB200E8C813 /* renderMoveScoreV2.js */; };
+		8030B3AE287EEEB500E8C813 /* renderMoveScore.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A4287EEEB300E8C813 /* renderMoveScore.js */; };
+		8030B3AF287EEEB500E8C813 /* hammer.mini.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A5287EEEB300E8C813 /* hammer.mini.js */; };
+		8030B3B0287EEEB500E8C813 /* http.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A6287EEEB300E8C813 /* http.js */; };
+		8030B3B1287EEEB500E8C813 /* jquery-3.6.0.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A7287EEEB300E8C813 /* jquery-3.6.0.min.js */; };
+		8030B3B2287EEEB500E8C813 /* renderNumberScore.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A8287EEEB400E8C813 /* renderNumberScore.js */; };
+		8030B3B3287EEEB500E8C813 /* OsmdAudioPlayer.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A9287EEEB400E8C813 /* OsmdAudioPlayer.min.js */; };
+		8030B3B4287EEEB500E8C813 /* renderScore.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3AA287EEEB400E8C813 /* renderScore.js */; };
+		8030B3B5287EEEB500E8C813 /* opensheetmusicdisplay.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3AB287EEEB400E8C813 /* opensheetmusicdisplay.min.js */; };
+		8030B3B6287EEEB500E8C813 /* score.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3AC287EEEB500E8C813 /* score.js */; };
+		8030B3B8287EEEBC00E8C813 /* renderMultiSwitchScore.html in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3B7287EEEBC00E8C813 /* renderMultiSwitchScore.html */; };
+		8030B3BA287EEFA800E8C813 /* WebMessageHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8030B3B9287EEFA800E8C813 /* WebMessageHandle.swift */; };
+		8030B3BD287FA29500E8C813 /* JiuEr.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3BC287FA29400E8C813 /* JiuEr.xml */; };
+		8030B3BF287FA3BB00E8C813 /* JiuEr.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3BE287FA3BB00E8C813 /* JiuEr.mp3 */; };
 		803F03BE2848D8F100317A11 /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F03BD2848D8F100317A11 /* GradientLabel.swift */; };
 		803F42EA282A040900A552AA /* CommonAudioPlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */; };
 		80476B1C28648C2C0046129E /* VisualEffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80476B1A28648C2C0046129E /* VisualEffectViewController.swift */; };
 		80476B1D28648C2C0046129E /* VisualEffectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80476B1B28648C2C0046129E /* VisualEffectViewController.xib */; };
 		8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8053107C27C202330044D481 /* AudioUnitParcViewController.swift */; };
 		8053107F27C202330044D481 /* AudioUnitParcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8053107D27C202330044D481 /* AudioUnitParcViewController.xib */; };
+		8058D278287D0CCE00A1173E /* 4_4.mid in Resources */ = {isa = PBXBuildFile; fileRef = 8058D277287D0CCE00A1173E /* 4_4.mid */; };
+		8058D27A287D0CF600A1173E /* 6_8.mid in Resources */ = {isa = PBXBuildFile; fileRef = 8058D279287D0CF600A1173E /* 6_8.mid */; };
+		8058D284287D22B100A1173E /* 3_8.mid in Resources */ = {isa = PBXBuildFile; fileRef = 8058D283287D22B100A1173E /* 3_8.mid */; };
+		8058D286287D23C700A1173E /* 2_4.mid in Resources */ = {isa = PBXBuildFile; fileRef = 8058D285287D23C700A1173E /* 2_4.mid */; };
+		8058D288287D23D100A1173E /* 3_4.mid in Resources */ = {isa = PBXBuildFile; fileRef = 8058D287287D23D100A1173E /* 3_4.mid */; };
+		8058D29C287E7A2E00A1173E /* JKSMusicSequencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058D29B287E7A2E00A1173E /* JKSMusicSequencer.swift */; };
+		8066CB2828D1784700A061EA /* EchoCancellationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066CB2628D1784700A061EA /* EchoCancellationViewController.swift */; };
+		8066CB2928D1784700A061EA /* EchoCancellationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8066CB2728D1784700A061EA /* EchoCancellationViewController.xib */; };
+		8066CB3928D461B500A061EA /* AudioInputEchoCancellation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8066CB3828D461B500A061EA /* AudioInputEchoCancellation.mm */; };
+		80771C2028B32B9A0029C0FC /* testSchemeInApp.html in Resources */ = {isa = PBXBuildFile; fileRef = 80771C1F28B32B9A0029C0FC /* testSchemeInApp.html */; };
+		8088B958287C16DF00218F48 /* wood block.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 8088B957287C16DF00218F48 /* wood block.sf2 */; };
 		80BBBF7A28433989004521CF /* AVAssetDealTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */; };
 		80BBBF7B28433989004521CF /* AVAssetDealTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF7928433989004521CF /* AVAssetDealTestViewController.xib */; };
 		80BBBF7E28433A43004521CF /* record2.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBF7C28433A43004521CF /* record2.pcm */; };
@@ -33,28 +64,59 @@
 		80BBBFA928470C21004521CF /* MultipleAudioTrackMixViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */; };
 		80C54414283B3440001FEB00 /* AppleSamplerTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */; };
 		80C54415283B3440001FEB00 /* AppleSamplerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */; };
-		80C5441A283B5C4C001FEB00 /* Library2.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 80C54419283B5C4C001FEB00 /* Library2.sf2 */; };
-		80C5441C283B5CAD001FEB00 /* QuDiMK6.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */; };
 		C97BCD7AB5C6AC37079357A0 /* libPods-AudioEngineerPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B5521249B196215791D82 /* libPods-AudioEngineerPractice.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2031AF7602E6417CFFAF253F /* Pods-AudioEngineerPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioEngineerPractice.release.xcconfig"; path = "Target Support Files/Pods-AudioEngineerPractice/Pods-AudioEngineerPractice.release.xcconfig"; sourceTree = "<group>"; };
 		3006FE1A294DA061069057E8 /* Pods-AudioEngineerPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioEngineerPractice.debug.xcconfig"; path = "Target Support Files/Pods-AudioEngineerPractice/Pods-AudioEngineerPractice.debug.xcconfig"; sourceTree = "<group>"; };
+		800394D7287530850041DC08 /* PlayMidiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMidiViewController.swift; sourceTree = "<group>"; };
+		800394D8287530850041DC08 /* PlayMidiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayMidiViewController.xib; sourceTree = "<group>"; };
+		800394E5287564940041DC08 /* tx16w_GM_1.0.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tx16w_GM_1.0.sf2; sourceTree = "<group>"; };
+		800394E7287581560041DC08 /* midi小星星3.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "midi小星星3.mid"; sourceTree = "<group>"; };
+		800394E8287581570041DC08 /* midi小星星3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "midi小星星3.mp3"; sourceTree = "<group>"; };
 		8019C69F27BE237A006B02B3 /* AudioEngineerPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioEngineerPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8019C6A227BE237A006B02B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8019C6A627BE237A006B02B3 /* AudioEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectViewController.swift; sourceTree = "<group>"; };
+		8019C6A627BE237A006B02B3 /* mainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainPage.swift; sourceTree = "<group>"; };
 		8019C6A927BE237A006B02B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8019C6AB27BE237C006B02B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8019C6AE27BE237C006B02B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8019C6B027BE237C006B02B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fourSeason.mp3; sourceTree = "<group>"; };
+		8030B39E287ECA5600E8C813 /* WebViewTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTestViewController.swift; sourceTree = "<group>"; };
+		8030B3A3287EEEB200E8C813 /* renderMoveScoreV2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderMoveScoreV2.js; sourceTree = "<group>"; };
+		8030B3A4287EEEB300E8C813 /* renderMoveScore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderMoveScore.js; sourceTree = "<group>"; };
+		8030B3A5287EEEB300E8C813 /* hammer.mini.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hammer.mini.js; sourceTree = "<group>"; };
+		8030B3A6287EEEB300E8C813 /* http.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = http.js; sourceTree = "<group>"; };
+		8030B3A7287EEEB300E8C813 /* jquery-3.6.0.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-3.6.0.min.js"; sourceTree = "<group>"; };
+		8030B3A8287EEEB400E8C813 /* renderNumberScore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderNumberScore.js; sourceTree = "<group>"; };
+		8030B3A9287EEEB400E8C813 /* OsmdAudioPlayer.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = OsmdAudioPlayer.min.js; sourceTree = "<group>"; };
+		8030B3AA287EEEB400E8C813 /* renderScore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderScore.js; sourceTree = "<group>"; };
+		8030B3AB287EEEB400E8C813 /* opensheetmusicdisplay.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = opensheetmusicdisplay.min.js; sourceTree = "<group>"; };
+		8030B3AC287EEEB500E8C813 /* score.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = score.js; sourceTree = "<group>"; };
+		8030B3B7287EEEBC00E8C813 /* renderMultiSwitchScore.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = renderMultiSwitchScore.html; sourceTree = "<group>"; };
+		8030B3B9287EEFA800E8C813 /* WebMessageHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMessageHandle.swift; sourceTree = "<group>"; };
+		8030B3BC287FA29400E8C813 /* JiuEr.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JiuEr.xml; sourceTree = "<group>"; };
+		8030B3BE287FA3BB00E8C813 /* JiuEr.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = JiuEr.mp3; sourceTree = "<group>"; };
 		803F03BD2848D8F100317A11 /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
 		803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAudioPlayerNode.swift; sourceTree = "<group>"; };
 		80476B1A28648C2C0046129E /* VisualEffectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectViewController.swift; sourceTree = "<group>"; };
 		80476B1B28648C2C0046129E /* VisualEffectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VisualEffectViewController.xib; sourceTree = "<group>"; };
 		8053107C27C202330044D481 /* AudioUnitParcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioUnitParcViewController.swift; sourceTree = "<group>"; };
 		8053107D27C202330044D481 /* AudioUnitParcViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioUnitParcViewController.xib; sourceTree = "<group>"; };
+		8058D277287D0CCE00A1173E /* 4_4.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = 4_4.mid; sourceTree = "<group>"; };
+		8058D279287D0CF600A1173E /* 6_8.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = 6_8.mid; sourceTree = "<group>"; };
+		8058D283287D22B100A1173E /* 3_8.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = 3_8.mid; sourceTree = "<group>"; };
+		8058D285287D23C700A1173E /* 2_4.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = 2_4.mid; sourceTree = "<group>"; };
+		8058D287287D23D100A1173E /* 3_4.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = 3_4.mid; sourceTree = "<group>"; };
+		8058D29B287E7A2E00A1173E /* JKSMusicSequencer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKSMusicSequencer.swift; sourceTree = "<group>"; };
+		8066CB2628D1784700A061EA /* EchoCancellationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoCancellationViewController.swift; sourceTree = "<group>"; };
+		8066CB2728D1784700A061EA /* EchoCancellationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EchoCancellationViewController.xib; sourceTree = "<group>"; };
+		8066CB3628D461B400A061EA /* AudioEngineerPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AudioEngineerPractice-Bridging-Header.h"; sourceTree = "<group>"; };
+		8066CB3728D461B500A061EA /* AudioInputEchoCancellation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioInputEchoCancellation.h; sourceTree = "<group>"; };
+		8066CB3828D461B500A061EA /* AudioInputEchoCancellation.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioInputEchoCancellation.mm; sourceTree = "<group>"; };
+		80771C1F28B32B9A0029C0FC /* testSchemeInApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = testSchemeInApp.html; sourceTree = "<group>"; };
+		8088B957287C16DF00218F48 /* wood block.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "wood block.sf2"; sourceTree = "<group>"; };
 		80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetDealTestViewController.swift; sourceTree = "<group>"; };
 		80BBBF7928433989004521CF /* AVAssetDealTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AVAssetDealTestViewController.xib; sourceTree = "<group>"; };
 		80BBBF7C28433A43004521CF /* record2.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = record2.pcm; sourceTree = "<group>"; };
@@ -69,8 +131,6 @@
 		80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleAudioTrackMixViewController.xib; sourceTree = "<group>"; };
 		80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSamplerTestViewController.swift; sourceTree = "<group>"; };
 		80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleSamplerTestViewController.xib; sourceTree = "<group>"; };
-		80C54419283B5C4C001FEB00 /* Library2.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Library2.sf2; sourceTree = "<group>"; };
-		80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = QuDiMK6.sf2; sourceTree = "<group>"; };
 		AE8B5521249B196215791D82 /* libPods-AudioEngineerPractice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AudioEngineerPractice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,29 +176,24 @@
 		8019C6A127BE237A006B02B3 /* AudioEngineerPractice */ = {
 			isa = PBXGroup;
 			children = (
+				8030B3A0287EEE7D00E8C813 /* webResources */,
+				8030B39D287EC9ED00E8C813 /* AudioAbout */,
 				80BBBF8E2844994B004521CF /* View */,
 				80BBBF8828446CAD004521CF /* Model */,
 				803F42E8282A03C000A552AA /* commonPro */,
 				8019C6B627BE2D90006B02B3 /* resources */,
+				8019C6A627BE237A006B02B3 /* mainPage.swift */,
 				8019C6A227BE237A006B02B3 /* AppDelegate.swift */,
-				8019C6A627BE237A006B02B3 /* AudioEffectViewController.swift */,
 				8019C6A827BE237A006B02B3 /* Main.storyboard */,
 				8019C6AB27BE237C006B02B3 /* Assets.xcassets */,
 				8019C6AD27BE237C006B02B3 /* LaunchScreen.storyboard */,
 				8019C6B027BE237C006B02B3 /* Info.plist */,
-				8053107C27C202330044D481 /* AudioUnitParcViewController.swift */,
-				8053107D27C202330044D481 /* AudioUnitParcViewController.xib */,
-				80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */,
-				80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */,
-				80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */,
-				80BBBF7928433989004521CF /* AVAssetDealTestViewController.xib */,
 				80BBBF842844680C004521CF /* HuaLangCollectionViewController.swift */,
 				80BBBF852844680C004521CF /* HuaLangCollectionViewController.xib */,
 				80BBBF9E284640CA004521CF /* GradienetTestViewController.swift */,
-				80BBBFA628470C21004521CF /* MultipleAudioTrackMixViewController.swift */,
-				80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */,
 				80476B1A28648C2C0046129E /* VisualEffectViewController.swift */,
 				80476B1B28648C2C0046129E /* VisualEffectViewController.xib */,
+				8030B39E287ECA5600E8C813 /* WebViewTestViewController.swift */,
 			);
 			path = AudioEngineerPractice;
 			sourceTree = "<group>";
@@ -146,23 +201,107 @@
 		8019C6B627BE2D90006B02B3 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				80771C1E28B32B640029C0FC /* html */,
 				80BBBF7D28433A43004521CF /* record1.pcm */,
 				80BBBF7C28433A43004521CF /* record2.pcm */,
 				80BBBF8028436B5A004521CF /* record11.caf */,
+				800394E7287581560041DC08 /* midi小星星3.mid */,
+				800394E8287581570041DC08 /* midi小星星3.mp3 */,
+				8088B957287C16DF00218F48 /* wood block.sf2 */,
 				80BBBF8128436B5A004521CF /* record2.caf */,
-				80C54419283B5C4C001FEB00 /* Library2.sf2 */,
-				80C5441B283B5CAD001FEB00 /* QuDiMK6.sf2 */,
+				8030B3BE287FA3BB00E8C813 /* JiuEr.mp3 */,
+				8058D277287D0CCE00A1173E /* 4_4.mid */,
+				8058D287287D23D100A1173E /* 3_4.mid */,
+				8058D285287D23C700A1173E /* 2_4.mid */,
+				8058D279287D0CF600A1173E /* 6_8.mid */,
+				8058D283287D22B100A1173E /* 3_8.mid */,
+				800394E5287564940041DC08 /* tx16w_GM_1.0.sf2 */,
 				8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		8030B39D287EC9ED00E8C813 /* AudioAbout */ = {
+			isa = PBXGroup;
+			children = (
+				8053107C27C202330044D481 /* AudioUnitParcViewController.swift */,
+				8053107D27C202330044D481 /* AudioUnitParcViewController.xib */,
+				80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */,
+				80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */,
+				80BBBF7828433989004521CF /* AVAssetDealTestViewController.swift */,
+				80BBBF7928433989004521CF /* AVAssetDealTestViewController.xib */,
+				80BBBFA628470C21004521CF /* MultipleAudioTrackMixViewController.swift */,
+				80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */,
+				800394D7287530850041DC08 /* PlayMidiViewController.swift */,
+				800394D8287530850041DC08 /* PlayMidiViewController.xib */,
+				8066CB2628D1784700A061EA /* EchoCancellationViewController.swift */,
+				8066CB2728D1784700A061EA /* EchoCancellationViewController.xib */,
+				8066CB3728D461B500A061EA /* AudioInputEchoCancellation.h */,
+				8066CB3828D461B500A061EA /* AudioInputEchoCancellation.mm */,
+				8066CB3628D461B400A061EA /* AudioEngineerPractice-Bridging-Header.h */,
+			);
+			path = AudioAbout;
+			sourceTree = "<group>";
+		};
+		8030B3A0287EEE7D00E8C813 /* webResources */ = {
+			isa = PBXGroup;
+			children = (
+				8030B3BB287EF1B900E8C813 /* xml */,
+				8030B3A2287EEEA600E8C813 /* html */,
+				8030B3A1287EEE9F00E8C813 /* js */,
+			);
+			path = webResources;
+			sourceTree = "<group>";
+		};
+		8030B3A1287EEE9F00E8C813 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				8030B3A5287EEEB300E8C813 /* hammer.mini.js */,
+				8030B3A6287EEEB300E8C813 /* http.js */,
+				8030B3A7287EEEB300E8C813 /* jquery-3.6.0.min.js */,
+				8030B3AB287EEEB400E8C813 /* opensheetmusicdisplay.min.js */,
+				8030B3A9287EEEB400E8C813 /* OsmdAudioPlayer.min.js */,
+				8030B3A4287EEEB300E8C813 /* renderMoveScore.js */,
+				8030B3A3287EEEB200E8C813 /* renderMoveScoreV2.js */,
+				8030B3A8287EEEB400E8C813 /* renderNumberScore.js */,
+				8030B3AA287EEEB400E8C813 /* renderScore.js */,
+				8030B3AC287EEEB500E8C813 /* score.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		8030B3A2287EEEA600E8C813 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				8030B3B7287EEEBC00E8C813 /* renderMultiSwitchScore.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		8030B3BB287EF1B900E8C813 /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				8030B3BC287FA29400E8C813 /* JiuEr.xml */,
+			);
+			path = xml;
 			sourceTree = "<group>";
 		};
 		803F42E8282A03C000A552AA /* commonPro */ = {
 			isa = PBXGroup;
 			children = (
 				803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */,
+				8058D29B287E7A2E00A1173E /* JKSMusicSequencer.swift */,
+				8030B3B9287EEFA800E8C813 /* WebMessageHandle.swift */,
 			);
 			path = commonPro;
+			sourceTree = "<group>";
+		};
+		80771C1E28B32B640029C0FC /* html */ = {
+			isa = PBXGroup;
+			children = (
+				80771C1F28B32B9A0029C0FC /* testSchemeInApp.html */,
+			);
+			path = html;
 			sourceTree = "<group>";
 		};
 		80BBBF8828446CAD004521CF /* Model */ = {
@@ -222,6 +361,7 @@
 				TargetAttributes = {
 					8019C69E27BE237A006B02B3 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1400;
 					};
 				};
 			};
@@ -249,21 +389,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				80BBBF7B28433989004521CF /* AVAssetDealTestViewController.xib in Resources */,
+				800394E9287581570041DC08 /* midi小星星3.mid in Resources */,
+				800394DA287530850041DC08 /* PlayMidiViewController.xib in Resources */,
+				8030B3B4287EEEB500E8C813 /* renderScore.js in Resources */,
 				80C54415283B3440001FEB00 /* AppleSamplerTestViewController.xib in Resources */,
+				8030B3B1287EEEB500E8C813 /* jquery-3.6.0.min.js in Resources */,
+				8030B3B0287EEEB500E8C813 /* http.js in Resources */,
+				8058D288287D23D100A1173E /* 3_4.mid in Resources */,
 				8053107F27C202330044D481 /* AudioUnitParcViewController.xib in Resources */,
 				80BBBF7E28433A43004521CF /* record2.pcm in Resources */,
+				8058D286287D23C700A1173E /* 2_4.mid in Resources */,
 				8019C6AF27BE237C006B02B3 /* LaunchScreen.storyboard in Resources */,
+				8030B3B3287EEEB500E8C813 /* OsmdAudioPlayer.min.js in Resources */,
+				8030B3B8287EEEBC00E8C813 /* renderMultiSwitchScore.html in Resources */,
 				80BBBF872844680C004521CF /* HuaLangCollectionViewController.xib in Resources */,
+				8088B958287C16DF00218F48 /* wood block.sf2 in Resources */,
+				8030B3AF287EEEB500E8C813 /* hammer.mini.js in Resources */,
 				80BBBF7F28433A43004521CF /* record1.pcm in Resources */,
 				8019C6AC27BE237C006B02B3 /* Assets.xcassets in Resources */,
+				8058D27A287D0CF600A1173E /* 6_8.mid in Resources */,
 				8019C6AA27BE237A006B02B3 /* Main.storyboard in Resources */,
+				8066CB2928D1784700A061EA /* EchoCancellationViewController.xib in Resources */,
 				80BBBFA928470C21004521CF /* MultipleAudioTrackMixViewController.xib in Resources */,
+				80771C2028B32B9A0029C0FC /* testSchemeInApp.html in Resources */,
 				80BBBF8328436B5A004521CF /* record2.caf in Resources */,
+				8030B3AE287EEEB500E8C813 /* renderMoveScore.js in Resources */,
+				8030B3B2287EEEB500E8C813 /* renderNumberScore.js in Resources */,
 				8019C6B827BE2DC4006B02B3 /* fourSeason.mp3 in Resources */,
-				80C5441C283B5CAD001FEB00 /* QuDiMK6.sf2 in Resources */,
-				80C5441A283B5C4C001FEB00 /* Library2.sf2 in Resources */,
+				8030B3AD287EEEB500E8C813 /* renderMoveScoreV2.js in Resources */,
+				800394E6287564940041DC08 /* tx16w_GM_1.0.sf2 in Resources */,
+				8058D284287D22B100A1173E /* 3_8.mid in Resources */,
+				8058D278287D0CCE00A1173E /* 4_4.mid in Resources */,
+				8030B3BD287FA29500E8C813 /* JiuEr.xml in Resources */,
 				80BBBF8228436B5A004521CF /* record11.caf in Resources */,
+				8030B3B5287EEEB500E8C813 /* opensheetmusicdisplay.min.js in Resources */,
+				800394EA287581570041DC08 /* midi小星星3.mp3 in Resources */,
+				8030B3BF287FA3BB00E8C813 /* JiuEr.mp3 in Resources */,
 				80476B1D28648C2C0046129E /* VisualEffectViewController.xib in Resources */,
+				8030B3B6287EEEB500E8C813 /* score.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,18 +462,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8030B3BA287EEFA800E8C813 /* WebMessageHandle.swift in Sources */,
 				80BBBF8A28446CF7004521CF /* GalleryFlowLayout.swift in Sources */,
+				8066CB2828D1784700A061EA /* EchoCancellationViewController.swift in Sources */,
 				80BBBF9F284640CA004521CF /* GradienetTestViewController.swift in Sources */,
 				803F42EA282A040900A552AA /* CommonAudioPlayerNode.swift in Sources */,
-				8019C6A727BE237A006B02B3 /* AudioEffectViewController.swift in Sources */,
+				8019C6A727BE237A006B02B3 /* mainPage.swift in Sources */,
 				803F03BE2848D8F100317A11 /* GradientLabel.swift in Sources */,
 				80BBBF7A28433989004521CF /* AVAssetDealTestViewController.swift in Sources */,
 				8019C6A327BE237A006B02B3 /* AppDelegate.swift in Sources */,
 				80BBBFA828470C21004521CF /* MultipleAudioTrackMixViewController.swift in Sources */,
+				8058D29C287E7A2E00A1173E /* JKSMusicSequencer.swift in Sources */,
 				80C54414283B3440001FEB00 /* AppleSamplerTestViewController.swift in Sources */,
 				80BBBF862844680C004521CF /* HuaLangCollectionViewController.swift in Sources */,
+				800394D9287530850041DC08 /* PlayMidiViewController.swift in Sources */,
 				80476B1C28648C2C0046129E /* VisualEffectViewController.swift in Sources */,
+				8066CB3928D461B500A061EA /* AudioInputEchoCancellation.mm in Sources */,
 				8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */,
+				8030B39F287ECA5600E8C813 /* WebViewTestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,11 +627,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KFLGGUU2KH;
+				DEVELOPMENT_TEAM = ALPRUF67F5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BigDemo;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "use microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -477,9 +649,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.WarrenWoo.app.AudioEngineerPractice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.warren.app.AudioEngineerPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AudioEngineerPractice/AudioAbout/AudioEngineerPractice-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -491,11 +666,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KFLGGUU2KH;
+				DEVELOPMENT_TEAM = ALPRUF67F5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BigDemo;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "use microphone";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -510,9 +688,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.WarrenWoo.app.AudioEngineerPractice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.warren.app.AudioEngineerPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AudioEngineerPractice/AudioAbout/AudioEngineerPractice-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
