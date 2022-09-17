@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^audioInputDataGet)(char *_Nullable buffer, int size);
+typedef void(^audioInputDataGet)(AudioBufferList *buffer);
 
 
 @interface AudioInputEchoCancellation : NSObject

@@ -7,13 +7,21 @@
 
 #import "AudioInputEchoCancellation.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface AudioInputEchoCancellation()
 
 @property (nonatomic, assign) AudioUnit audioUnit;
 
 @property (copy) audioInputDataGet outDataBlock;
+
+@property (nonatomic, assign) UInt32 maximumFramesPerSlice;
+
+@property (nonatomic, assign) AudioBufferList* pInputAudioBufferList;
+
+@property (nonatomic, assign) AudioStreamBasicDescription asbd;
+
+
 
 @end
 
@@ -28,6 +36,7 @@
     self = [super init];
     if (!self) return nil;
     
+    _asbd = asbd;
     AudioComponentDescription des;
     des.componentFlags = 0;
     des.componentFlagsMask = 0;
@@ -44,18 +53,40 @@
     
     
     UInt32 flags = 1;
+    /// 打开输入口
     ret = AudioUnitSetProperty(self.audioUnit, kAudioOutputUnitProperty_EnableIO, kAudioUnitScope_Input, 1, &flags, sizeof(flags));
     if (ret != noErr) return nil;
-    
+    /// 输入总线的输出格式
     ret = AudioUnitSetProperty(self.audioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 1, &asbd, sizeof(asbd));
     if (ret != noErr) return nil;
     
-    AURenderCallbackStruct callback;
-    callback.inputProc = audioInputCallback;
-    callback.inputProcRefCon = (__bridge void* _Nullable)(self);
+    /// 输出总线的输入格式
+    ret = AudioUnitSetProperty(self.audioUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, 0, &asbd, sizeof(asbd));
+    if (ret != noErr) return nil;
     
-    ret = AudioUnitSetProperty(_audioUnit, kAudioOutputUnitProperty_SetInputCallback, kAudioUnitScope_Global, 1, &callback, sizeof(callback));
     
+    /// 麦克风 每次运送最大帧数
+    UInt32 framePerSliceSize = sizeof(_maximumFramesPerSlice);
+    ret = AudioUnitGetProperty(self.audioUnit, kAudioUnitProperty_MaximumFramesPerSlice, kAudioUnitScope_Global, 0, &_maximumFramesPerSlice, &framePerSliceSize);
+    if (ret != noErr) return nil;
+    
+    
+//    AURenderCallbackStruct renderCallback;
+//    renderCallback.inputProc = AudioRenderCallback;
+//    renderCallback.inputProcRefCon = (__bridge void* _Nullable)(self);
+//    ret = AudioUnitSetProperty(self.audioUnit, kAudioUnitProperty_SetRenderCallback, kAudioUnitScope_Output, 0, &renderCallback, sizeof(renderCallback));
+//    if (ret != noErr) return nil;
+    
+    
+    AURenderCallbackStruct inputCallback;
+    inputCallback.inputProc = audioInputCallback;
+    inputCallback.inputProcRefCon = (__bridge void* _Nullable)(self);
+    
+    ret = AudioUnitSetProperty(_audioUnit, kAudioOutputUnitProperty_SetInputCallback, kAudioUnitScope_Input, 1, &inputCallback, sizeof(inputCallback));
+    
+    if (ret != noErr) return nil;
+
+    ret = AudioUnitInitialize(self.audioUnit);
     if (ret != noErr) return nil;
     
     return self;
@@ -77,33 +108,31 @@ static OSStatus audioInputCallback(void *inRefCon, AudioUnitRenderActionFlags *i
     list.mBuffers[0].mDataByteSize = 0;
     list.mBuffers[0].mNumberChannels = 1;
     
+    
     OSStatus error = AudioUnitRender(r.audioUnit, ioActionFlags, inTimeStamp, inBusNumber, inNumberFrame, &list);
-//    static FILE *fp = NULL;
-//    if (!fp)
-//        fp = fopen([[NSHomeDirectory() stringByAppendingFormat:@"/Documents/io.pcm"] UTF8String], "wb");
-//    if (error == noErr)
-//        fwrite(tmp.mBuffers[0].mData, 1, tmp.mBuffers[0].mDataByteSize, fp);
     
     if (error != noErr)
         NSLog(@"record_callback error : %d", error);
     
     
-    
-    int size = list.mBuffers[0].mDataByteSize;
-    char *src = (char*)list.mBuffers[0].mData;
-    if (size > 0 && src)
-    {
-        char *dst = (char*)calloc(1, size);
-        memcpy(dst, src, size);
-        if (r.outDataBlock) {
-            r.outDataBlock(dst, size);
-        }else{
-            NSLog(@"record_callback error outDataBlock Nil");
-        }
-    }else{
-        NSLog(@"record_callback error  size < 0");
+    if (r.outDataBlock) {
+        r.outDataBlock(&list);
     }
-    return error;
+//    int size = list->mBuffers[0].mDataByteSize;
+//    char *src = (char*)list->mBuffers[0].mData;
+//    if (size > 0 && src)
+//    {
+//        char *dst = (char*)calloc(1, size);
+//        memcpy(dst, src, size);
+//        if (r.outDataBlock) {
+//            r.outDataBlock(dst, size);
+//        }else{
+//            NSLog(@"record_callback error outDataBlock Nil");
+//        }
+//    }else{
+//        NSLog(@"record_callback error  size < 0");
+//    }
+    return noErr;
 }
 
 - (void)audioInputStart {

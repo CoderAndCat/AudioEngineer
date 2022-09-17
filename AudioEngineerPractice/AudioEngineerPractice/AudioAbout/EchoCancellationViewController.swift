@@ -18,6 +18,8 @@ class EchoCancellationViewController: UIViewController {
     private var endMixNode: AVAudioMixerNode {
         return self.audioEngine.mainMixerNode
     }
+    
+    
 //    private var inputNode = AVAudioInputNode
     
     private var audioComponentDesc = AudioComponentDescription()
@@ -30,37 +32,15 @@ class EchoCancellationViewController: UIViewController {
     
     
     
-    let AudioRecorderRenderCallback: AURenderCallback = {(inRefCon: UnsafeMutableRawPointer, ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, inTimeStamp:UnsafePointer<AudioTimeStamp>, inBusNumber: UInt32, inNumberFrames: UInt32, ioData: UnsafeMutablePointer<AudioBufferList>?) -> OSStatus in
-        
-        guard let ioData_ = ioData else{
-            return 123
-        }
-        
-        let context = inRefCon.load(as: AudioRenderContext.self)
-        var eore: OSStatus = noErr
-        
-        
-        /*
-         typealias AVAudioEngineManualRenderingBlock = (AVAudioFrameCount, UnsafeMutablePointer<AudioBufferList>, UnsafeMutablePointer<OSStatus>?) -> AVAudioEngineManualRenderingStatus
-         */
-        let renderingBlock: AVAudioEngineManualRenderingBlock = context.renderingBlock.load(as: AVAudioEngineManualRenderingBlock.self)
-        
-        let renderingStatus = renderingBlock(inNumberFrames, ioData_, &eore)
-        
-        if (renderingStatus != AVAudioEngineManualRenderingStatus.success) {
-            debugPrint("---- renderingBlock fail----")
-            return eore
-        }
-        
-        return eore
-    }
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAudioInputLowiOS13()
+//        if #available(iOS 13.0, *) {
+//
+//        }else{
+//            setupAudioInputLowiOS13()
+//        }
+
         setupAudioEngine()
         // Do any additional setup after loading the view.
     }
@@ -76,43 +56,53 @@ class EchoCancellationViewController: UIViewController {
         
         let echoObj = AudioInputEchoCancellation.init(asbd: format.streamDescription.pointee)
         self.echoCancelObj = echoObj
-        
-        echoObj.setOutputDataBlock { dataPointer, size in
-            if let dataPointer_ = dataPointer {
-                var dataArray = [Int8]()
-                for i in 0..<size {
-                    let dataPointerIn = dataPointer_ + Int(i)
-                    dataArray.append(Int8(dataPointerIn.pointee))
-                }
-               
-                let audioData = Data.init(bytes: dataArray, count: dataArray.count)
+       
+        echoObj.setOutputDataBlock {[weak self] bufferList in
+            guard let sself = self else{
+                debugPrint("queue sself nil")
+                return
+            }
+            
+            
+            if let pcmBufPointer = bufferList.pointee.mBuffers.mData {
+                let pcmBuf = pcmBufPointer.load(as: AVAudioPCMBuffer.self)
                 
-                debugPrint("---- 收到音频输入 数据解析大小:\(audioData.count) 大小：\(size)")
             }else{
-                debugPrint("---- 收到数据 nil  大小：\(size)")
+                debugPrint("------ setOutputDataBlock， bufferList nil")
             }
         }
-        
-        
     }
     
     func setupAudioEngine() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playAndRecord, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setPreferredSampleRate(44100)
+            
             if #available(iOS 13.0, *) {
                 try micNode.setVoiceProcessingEnabled(true)
             }else{
-                
+                if let micAudioUnit = self.micNode.audioUnit {
+                    var enableFlag = UInt32(0)
+                    let size = UInt32(MemoryLayout.size(ofValue: enableFlag))
+                    let res = AudioUnitSetProperty(micAudioUnit, kAUVoiceIOProperty_BypassVoiceProcessing, kAudioUnitScope_Global, 0, &enableFlag, size)
+                    if res == noErr {
+                        debugPrint("----- 回声消除 iOS 13 以下 设置成功 ")
+                    }else{
+                        debugPrint("----- 回声消除 iOS 13 以下 设置失败 fail-----:\(res)")
+                    }
+                }else{
+                    debugPrint("---- micNode  audioUnit ------nil")
+                }
             }
-            try AVAudioSession.sharedInstance().setPreferredSampleRate(44100)
             
-            self.audioEngine.attach(audioin)
             
             
             let format = micNode.outputFormat(forBus: 0)
-            self._audioStreamBasicDescription = format.streamDescription.pointee
 
+            self.audioEngine.connect(micNode, to: endMixNode, format: format)
             self.audioEngine.connect(endMixNode, to: self.audioEngine.outputNode, format: format)
+            
+            
             debugPrint("---- 音频引擎格式 :\(format.settings)")
         } catch let eore {
             debugPrint("---- 音频引擎设置出错：\(eore.localizedDescription)")
@@ -122,36 +112,42 @@ class EchoCancellationViewController: UIViewController {
     }
 
     @IBAction func startEngine(_ sender: UIButton) {
-        if let echoCancelObj_ = echoCancelObj {
-            echoCancelObj_.audioInputStart()
-        }else{
-            debugPrint("---- 回声消除对象 nil")
-        }
+//        if let echoCancelObj_ = echoCancelObj {
+//            echoCancelObj_.audioInputStart()
+//        }else{
+//            debugPrint("---- 回声消除对象 nil")
+//        }
         
         if self.audioEngine.isRunning {
             return
         }
         do {
             try self.audioEngine.start()
+            
         } catch let erore {
             debugPrint("----- 音频引擎启动出错--- :\(erore.localizedDescription)")
+            return
         }
+        
+        
+        
+        
     }
     
     
     
     @IBAction func stopEngine(_ sender: UIButton) {
         
-        if let echoCancelObj_ = echoCancelObj {
-            echoCancelObj_.audioInputStop()
-        }else{
-            debugPrint("---- 回声消除对象 nil")
-        }
-        
-//        if !self.audioEngine.isRunning {
-//            return
+//        if let echoCancelObj_ = echoCancelObj {
+//            echoCancelObj_.audioInputStop()
+//        }else{
+//            debugPrint("---- 回声消除对象 nil")
 //        }
-//        self.audioEngine.stop()
+        
+        if !self.audioEngine.isRunning {
+            return
+        }
+        self.audioEngine.stop()
     }
     
 //    func lowiOS13SetupAudioUnit() {
