@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 
 class AudioEffectViewController: UIViewController {
@@ -25,12 +26,20 @@ class AudioEffectViewController: UIViewController {
     static let mediumHall2 = "mediumHall2"
     static let mediumHall3 = "mediumHall3"
     static let largeHall2 = "largeHall2"
+    /// 是否正在手动调节音量
+    var changingMainVolumeInApp = false
     
-    
+    @IBOutlet weak var sysVolumeSlider: UISlider!
+    @IBOutlet weak var sysVolumeValueLab: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        if #available(iOS 15.0, *) {
+            AVAudioSession.sharedInstance().addObserver(self, forKeyPath: "outputVolume", options: NSKeyValueObservingOptions.new, context: nil)
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(volumeChanged(notifica:)), name: Notification.Name.init("AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
+        }
     }
 
 
@@ -41,7 +50,13 @@ class AudioEffectViewController: UIViewController {
     }
 
     //MARK: Action
-    
+    @objc func volumeChanged(notifica: Notification) {
+        if changingMainVolumeInApp {return}
+        if let volum:Float = notifica.userInfo?["AVSystemController_AudioVolumeNotificationParameter"] as! Float?{
+            self.sysVolumeSlider.setValue(volum, animated: true)
+            self.sysVolumeValueLab.text = String(format: "%.2f", volum)
+       }
+    }
     @IBAction func enterNextPage(_ sender: UIButton) {
         let aunvc = AudioUnitParcViewController(nibName: "AudioUnitParcViewController", bundle: nil)
         self.navigationController?.pushViewController(aunvc, animated: true)
@@ -102,6 +117,36 @@ class AudioEffectViewController: UIViewController {
     @IBAction private func micorEchoCancellation(_ sender: UIButton) {
         let echoCanVC = EchoCancellationViewController.init(nibName: "EchoCancellationViewController", bundle: nil)
         self.navigationController?.pushViewController(echoCanVC, animated: true)
+    }
+    
+    @IBAction private func audioIODeviceDisplay() {
+        let auIOVC = AudioIODeviceDisViewController.init(nibName: "AudioIODeviceDisViewController", bundle: nil)
+        self.navigationController?.pushViewController(auIOVC, animated: true)
+        
+    }
+    
+    @IBAction func mainVolumeChange(sender: UISlider) {
+        MPVolumeView.setVolume(sender.value)
+        self.sysVolumeValueLab.text = String(format: "%.2f", sender.value)
+    }
+    @IBAction func volumeSliderTouchdown(_ sender: UISlider) {
+        self.changingMainVolumeInApp = true
+    }
+    @IBAction func volumeSliderTouchUp(_ sender: UISlider) {
+        self.changingMainVolumeInApp = false
+    }
+    
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let chDic = change, keyPath == "outputVolume" {
+            if self.changingMainVolumeInApp {return}
+            if let volumeVal = chDic[NSKeyValueChangeKey.newKey] as? Float {
+                DispatchQueue.main.async {
+                    self.sysVolumeSlider.setValue(volumeVal, animated: true)
+                    self.sysVolumeValueLab.text = String(format: "%.2f", volumeVal)
+                }
+            }
+        }
     }
 }
 

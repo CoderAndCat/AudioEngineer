@@ -18,6 +18,8 @@
 		8019C6AC27BE237C006B02B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6AB27BE237C006B02B3 /* Assets.xcassets */; };
 		8019C6AF27BE237C006B02B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6AD27BE237C006B02B3 /* LaunchScreen.storyboard */; };
 		8019C6B827BE2DC4006B02B3 /* fourSeason.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */; };
+		8025A95628D820FF00D44EA0 /* AudioIODeviceDisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025A95428D820FF00D44EA0 /* AudioIODeviceDisViewController.swift */; };
+		8025A95728D820FF00D44EA0 /* AudioIODeviceDisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8025A95528D820FF00D44EA0 /* AudioIODeviceDisViewController.xib */; };
 		8030B39F287ECA5600E8C813 /* WebViewTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8030B39E287ECA5600E8C813 /* WebViewTestViewController.swift */; };
 		8030B3AD287EEEB500E8C813 /* renderMoveScoreV2.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A3287EEEB200E8C813 /* renderMoveScoreV2.js */; };
 		8030B3AE287EEEB500E8C813 /* renderMoveScore.js in Resources */ = {isa = PBXBuildFile; fileRef = 8030B3A4287EEEB300E8C813 /* renderMoveScore.js */; };
@@ -64,6 +66,7 @@
 		80BBBFA928470C21004521CF /* MultipleAudioTrackMixViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */; };
 		80C54414283B3440001FEB00 /* AppleSamplerTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */; };
 		80C54415283B3440001FEB00 /* AppleSamplerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */; };
+		80D97F6A28E2FACF00E2B64A /* MPVolumeViewe+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D97F6928E2FACF00E2B64A /* MPVolumeViewe+Extension.swift */; };
 		C97BCD7AB5C6AC37079357A0 /* libPods-AudioEngineerPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE8B5521249B196215791D82 /* libPods-AudioEngineerPractice.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,8 @@
 		8019C6AE27BE237C006B02B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8019C6B027BE237C006B02B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8019C6B727BE2DC4006B02B3 /* fourSeason.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fourSeason.mp3; sourceTree = "<group>"; };
+		8025A95428D820FF00D44EA0 /* AudioIODeviceDisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioIODeviceDisViewController.swift; sourceTree = "<group>"; };
+		8025A95528D820FF00D44EA0 /* AudioIODeviceDisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioIODeviceDisViewController.xib; sourceTree = "<group>"; };
 		8030B39E287ECA5600E8C813 /* WebViewTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTestViewController.swift; sourceTree = "<group>"; };
 		8030B3A3287EEEB200E8C813 /* renderMoveScoreV2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderMoveScoreV2.js; sourceTree = "<group>"; };
 		8030B3A4287EEEB300E8C813 /* renderMoveScore.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = renderMoveScore.js; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 		80BBBFA728470C21004521CF /* MultipleAudioTrackMixViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleAudioTrackMixViewController.xib; sourceTree = "<group>"; };
 		80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSamplerTestViewController.swift; sourceTree = "<group>"; };
 		80C54413283B3440001FEB00 /* AppleSamplerTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleSamplerTestViewController.xib; sourceTree = "<group>"; };
+		80D97F6928E2FACF00E2B64A /* MPVolumeViewe+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MPVolumeViewe+Extension.swift"; sourceTree = "<group>"; };
 		AE8B5521249B196215791D82 /* libPods-AudioEngineerPractice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AudioEngineerPractice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -239,6 +245,8 @@
 				8066CB3728D461B500A061EA /* AudioInputEchoCancellation.h */,
 				8066CB3828D461B500A061EA /* AudioInputEchoCancellation.mm */,
 				8066CB3628D461B400A061EA /* AudioEngineerPractice-Bridging-Header.h */,
+				8025A95428D820FF00D44EA0 /* AudioIODeviceDisViewController.swift */,
+				8025A95528D820FF00D44EA0 /* AudioIODeviceDisViewController.xib */,
 			);
 			path = AudioAbout;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 				803F42E9282A040900A552AA /* CommonAudioPlayerNode.swift */,
 				8058D29B287E7A2E00A1173E /* JKSMusicSequencer.swift */,
 				8030B3B9287EEFA800E8C813 /* WebMessageHandle.swift */,
+				80D97F6928E2FACF00E2B64A /* MPVolumeViewe+Extension.swift */,
 			);
 			path = commonPro;
 			sourceTree = "<group>";
@@ -408,6 +417,7 @@
 				80BBBF7F28433A43004521CF /* record1.pcm in Resources */,
 				8019C6AC27BE237C006B02B3 /* Assets.xcassets in Resources */,
 				8058D27A287D0CF600A1173E /* 6_8.mid in Resources */,
+				8025A95728D820FF00D44EA0 /* AudioIODeviceDisViewController.xib in Resources */,
 				8019C6AA27BE237A006B02B3 /* Main.storyboard in Resources */,
 				8066CB2928D1784700A061EA /* EchoCancellationViewController.xib in Resources */,
 				80BBBFA928470C21004521CF /* MultipleAudioTrackMixViewController.xib in Resources */,
@@ -475,9 +485,11 @@
 				8058D29C287E7A2E00A1173E /* JKSMusicSequencer.swift in Sources */,
 				80C54414283B3440001FEB00 /* AppleSamplerTestViewController.swift in Sources */,
 				80BBBF862844680C004521CF /* HuaLangCollectionViewController.swift in Sources */,
+				8025A95628D820FF00D44EA0 /* AudioIODeviceDisViewController.swift in Sources */,
 				800394D9287530850041DC08 /* PlayMidiViewController.swift in Sources */,
 				80476B1C28648C2C0046129E /* VisualEffectViewController.swift in Sources */,
 				8066CB3928D461B500A061EA /* AudioInputEchoCancellation.mm in Sources */,
+				80D97F6A28E2FACF00E2B64A /* MPVolumeViewe+Extension.swift in Sources */,
 				8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */,
 				8030B39F287ECA5600E8C813 /* WebViewTestViewController.swift in Sources */,
 			);
