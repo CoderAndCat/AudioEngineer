@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04631BC628DB4EB30064CBCE /* ButtonConAndCellConViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04631BC428DB4EB30064CBCE /* ButtonConAndCellConViewController.swift */; };
+		04631BC728DB4EB30064CBCE /* ButtonConAndCellConViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04631BC528DB4EB30064CBCE /* ButtonConAndCellConViewController.xib */; };
 		800394D9287530850041DC08 /* PlayMidiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800394D7287530850041DC08 /* PlayMidiViewController.swift */; };
 		800394DA287530850041DC08 /* PlayMidiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800394D8287530850041DC08 /* PlayMidiViewController.xib */; };
 		800394E6287564940041DC08 /* tx16w_GM_1.0.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 800394E5287564940041DC08 /* tx16w_GM_1.0.sf2 */; };
@@ -68,6 +70,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04631BC428DB4EB30064CBCE /* ButtonConAndCellConViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConAndCellConViewController.swift; sourceTree = "<group>"; };
+		04631BC528DB4EB30064CBCE /* ButtonConAndCellConViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonConAndCellConViewController.xib; sourceTree = "<group>"; };
 		2031AF7602E6417CFFAF253F /* Pods-AudioEngineerPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioEngineerPractice.release.xcconfig"; path = "Target Support Files/Pods-AudioEngineerPractice/Pods-AudioEngineerPractice.release.xcconfig"; sourceTree = "<group>"; };
 		3006FE1A294DA061069057E8 /* Pods-AudioEngineerPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioEngineerPractice.debug.xcconfig"; path = "Target Support Files/Pods-AudioEngineerPractice/Pods-AudioEngineerPractice.debug.xcconfig"; sourceTree = "<group>"; };
 		800394D7287530850041DC08 /* PlayMidiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMidiViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				80476B1A28648C2C0046129E /* VisualEffectViewController.swift */,
 				80476B1B28648C2C0046129E /* VisualEffectViewController.xib */,
 				8030B39E287ECA5600E8C813 /* WebViewTestViewController.swift */,
+				04631BC428DB4EB30064CBCE /* ButtonConAndCellConViewController.swift */,
+				04631BC528DB4EB30064CBCE /* ButtonConAndCellConViewController.xib */,
 			);
 			path = AudioEngineerPractice;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				8030B3AE287EEEB500E8C813 /* renderMoveScore.js in Resources */,
 				8030B3B2287EEEB500E8C813 /* renderNumberScore.js in Resources */,
 				8019C6B827BE2DC4006B02B3 /* fourSeason.mp3 in Resources */,
+				04631BC728DB4EB30064CBCE /* ButtonConAndCellConViewController.xib in Resources */,
 				8030B3AD287EEEB500E8C813 /* renderMoveScoreV2.js in Resources */,
 				800394E6287564940041DC08 /* tx16w_GM_1.0.sf2 in Resources */,
 				8058D284287D22B100A1173E /* 3_8.mid in Resources */,
@@ -477,6 +484,7 @@
 				80BBBF862844680C004521CF /* HuaLangCollectionViewController.swift in Sources */,
 				800394D9287530850041DC08 /* PlayMidiViewController.swift in Sources */,
 				80476B1C28648C2C0046129E /* VisualEffectViewController.swift in Sources */,
+				04631BC628DB4EB30064CBCE /* ButtonConAndCellConViewController.swift in Sources */,
 				8066CB3928D461B500A061EA /* AudioInputEchoCancellation.mm in Sources */,
 				8053107E27C202330044D481 /* AudioUnitParcViewController.swift in Sources */,
 				8030B39F287ECA5600E8C813 /* WebViewTestViewController.swift in Sources */,

@@ -100,8 +100,11 @@ class AudioEffectViewController: UIViewController {
     }
     
     @IBAction private func micorEchoCancellation(_ sender: UIButton) {
-        let echoCanVC = EchoCancellationViewController.init(nibName: "EchoCancellationViewController", bundle: nil)
-        self.navigationController?.pushViewController(echoCanVC, animated: true)
+//        let echoCanVC = EchoCancellationViewController.init(nibName: "EchoCancellationViewController", bundle: nil)
+//        self.navigationController?.pushViewController(echoCanVC, animated: true)
+        
+        let configTest = ButtonConAndCellConViewController.init(nibName: "ButtonConAndCellConViewController", bundle: nil)
+        self.navigationController?.pushViewController(configTest, animated: true)
     }
 }
 
