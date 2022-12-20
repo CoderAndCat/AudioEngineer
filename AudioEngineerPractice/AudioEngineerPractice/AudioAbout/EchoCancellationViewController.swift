@@ -82,6 +82,7 @@ class EchoCancellationViewController: UIViewController {
                 try micNode.setVoiceProcessingEnabled(true)
             }else{
                 if let micAudioUnit = self.micNode.audioUnit {
+                    // 0 开启  1 关闭
                     var enableFlag = UInt32(0)
                     let size = UInt32(MemoryLayout.size(ofValue: enableFlag))
                     let res = AudioUnitSetProperty(micAudioUnit, kAUVoiceIOProperty_BypassVoiceProcessing, kAudioUnitScope_Global, 0, &enableFlag, size)

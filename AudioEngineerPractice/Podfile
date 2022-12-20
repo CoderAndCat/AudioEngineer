@@ -5,6 +5,8 @@ platform :ios, '11.0'
 target 'AudioEngineerPractice' do
 
   pod 'SnapKit', '~> 5.6.0'
-
+  
+  # 网络音频播放器
+#  pod 'StreamingKit', '0.1.30'
 
 end

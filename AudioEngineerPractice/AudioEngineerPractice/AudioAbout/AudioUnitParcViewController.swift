@@ -128,8 +128,8 @@ class AudioUnitParcViewController: UIViewController {
 //        }
         
         self.playerMix.installTap(onBus: 0, bufferSize: .max, format: self.outputFormat) {[weak self] pcmBuffer, time in
-            debugPrint("----- 播放节点流数据format：\(pcmBuffer.format.settings), 可用帧数:\(pcmBuffer.frameLength)")
-            guard let sself = self else{
+//            debugPrint("----- 播放节点流数据format：\(pcmBuffer.format.settings), 可用帧数:\(pcmBuffer.frameLength)")
+            guard let sself = self, sself.recording else{
 //                JKprint("queue sself nil")
                 return
             }
@@ -211,18 +211,31 @@ class AudioUnitParcViewController: UIViewController {
     // MARK: - Action
     
     @IBAction func startTouch(_ sender: UIButton) {
-        if self.recording {
-            return
+        if self.player.isPlaying {
+            
+            self.player.pause()
+            self.recording = false
+            sender.setTitle("play", for: .normal)
+        }else{
+            if let acTime = accomTimer, acTime.isValid ,self.audioEngineer.isRunning, !self.player.isPlaying {
+                self.player.play()
+                self.recording = true
+            }else{
+                self.audioRecordFile = nil
+                startAudioEngine()
+                prepareAccomAndRecordFile()
+                self.recording = true
+                self.player.play()
+                self.accomTimer?.fire()
+            }
+            sender.setTitle("pause", for: .normal)
         }
-        self.audioRecordFile = nil
-        startAudioEngine()
-        prepareAccomAndRecordFile()
-        self.recording = true
-        self.player.play()
-        self.accomTimer?.fire()
+        
+        
     }
     
     @IBAction func stopTouch(_ sender: UIButton) {
+        sender.setTitle("player", for: .normal)
         self.audioEngineer.stop()
         self.recording = false
         self.player.stop()

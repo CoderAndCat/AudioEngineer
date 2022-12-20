@@ -82,6 +82,9 @@ class JKSAudioEnginePlayer: AVAudioPlayerNode {
         
         scheduleFile(file, at: nil) {
             [weak self] in
+            // 只在 播放结束，或者 播放器 调用 Stop 时候调用（pause 不算）
+            debugPrint("--- AVAudioPlayerNode  scheduleFile, CompleteHandle 调用-----在 loadAudioFile函数中")
+            
             guard let sself = self else{
 //                JKprint("queue sself nil")
                 return
@@ -105,6 +108,8 @@ class JKSAudioEnginePlayer: AVAudioPlayerNode {
             debugPrint("-- 音频从头播放-----")
             scheduleFile(file, at: nil) {
                 [weak self] in
+                // 只在 播放结束，或者 播放器 调用 Stop 时候调用（pause 不算）
+                debugPrint("--- AVAudioPlayerNode  scheduleFile, CompleteHandle 调用-----在 play 函数中")
                 guard let sself = self else{
                     debugPrint("queue sself nil")
                     return
@@ -150,6 +155,8 @@ class JKSAudioEnginePlayer: AVAudioPlayerNode {
                         frameCount: frameCount,
                         at: nil) {
             [weak self] in
+            // 只在 播放结束，或者 播放器 调用 Stop 时候调用（pause 不算）
+            debugPrint("--- AVAudioPlayerNode scheduleSegment， completeHandle 调用---")
             guard let sself = self else{
                 debugPrint("queue sself nil")
                 return

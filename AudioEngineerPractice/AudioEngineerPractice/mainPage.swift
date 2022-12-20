@@ -115,11 +115,11 @@ class AudioEffectViewController: UIViewController {
     }
     
     @IBAction private func micorEchoCancellation(_ sender: UIButton) {
-//        let echoCanVC = EchoCancellationViewController.init(nibName: "EchoCancellationViewController", bundle: nil)
-//        self.navigationController?.pushViewController(echoCanVC, animated: true)
+        let echoCanVC = EchoCancellationViewController.init(nibName: "EchoCancellationViewController", bundle: nil)
+        self.navigationController?.pushViewController(echoCanVC, animated: true)
         
-        let configTest = ButtonConAndCellConViewController.init(nibName: "ButtonConAndCellConViewController", bundle: nil)
-        self.navigationController?.pushViewController(configTest, animated: true)
+//        let configTest = ButtonConAndCellConViewController.init(nibName: "ButtonConAndCellConViewController", bundle: nil)
+//        self.navigationController?.pushViewController(configTest, animated: true)
     }
     
     @IBAction private func audioIODeviceDisplay() {
@@ -138,8 +138,7 @@ class AudioEffectViewController: UIViewController {
     @IBAction func volumeSliderTouchUp(_ sender: UISlider) {
         self.changingMainVolumeInApp = false
     }
-    
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let chDic = change, keyPath == "outputVolume" {
             if self.changingMainVolumeInApp {return}

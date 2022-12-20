@@ -236,6 +236,7 @@
 		8030B39D287EC9ED00E8C813 /* AudioAbout */ = {
 			isa = PBXGroup;
 			children = (
+				80EE9CA42923516000CE6A3D /* EchoCancel */,
 				8053107C27C202330044D481 /* AudioUnitParcViewController.swift */,
 				8053107D27C202330044D481 /* AudioUnitParcViewController.xib */,
 				80C54412283B343F001FEB00 /* AppleSamplerTestViewController.swift */,
@@ -333,6 +334,13 @@
 				803F03BD2848D8F100317A11 /* GradientLabel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		80EE9CA42923516000CE6A3D /* EchoCancel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EchoCancel;
 			sourceTree = "<group>";
 		};
 		F9E2612F70D0386835320C2B /* Frameworks */ = {
@@ -652,6 +660,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ALPRUF67F5;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BigDemo;
@@ -691,6 +700,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ALPRUF67F5;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AudioEngineerPractice/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BigDemo;
